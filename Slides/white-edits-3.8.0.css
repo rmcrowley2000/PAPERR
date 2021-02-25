@@ -1,0 +1,794 @@
+/*******************************************************************************
+*                                                                              *
+* Custom css for Reveal.js by Dr. Richard M. Crowley, 2018                     *
+*                                                                              *
+*******************************************************************************/
+
+/*adds smu logo to slides*/
+/*No longer needed, still in nav buttons
+body {
+    background-image: url(../Figures/logo2.png);
+    background-size: 5%;
+    background-repeat: no-repeat;
+    background-position: 3% 96%;
+}
+*/
+/*no background code block with this div*/
+color: #3a3a3a;
+
+/*******************************************************************************
+*                                                                              *
+* Default styling for Reveal.js elements                                       *
+*                                                                              *
+*******************************************************************************/
+
+.reveal section.title h1 {
+  font-size: 2em;
+  font-weight:900;
+}
+.reveal section.titleslide h1 {
+  font-size: 2em;
+  font-weight:900;
+}
+.reveal h2.author {
+  font-size: 0.75em;
+}
+
+.reveal h1.date {
+  font-size: 1.5em;
+}
+
+
+.reveal section > section.slide {
+  font-size: 0.72em;
+}
+
+.reveal h1 {
+  font-size: 1.2em
+}
+
+div.code-blend pre {
+  margin-bottom: 0;
+  margin-top: 0;
+  border:none;
+  box-shadow:none;
+}
+
+.reveal ul li::before {
+  content: "▪";
+  color: rgb(39,54,133);
+  display: inline-block; width: 1em;
+  margin-left: -1em;
+}
+
+.reveal ul ol li::before {
+  content: "";
+}
+
+.reveal ul ol ul li::before {
+  content: "▪";
+  color: rgb(39,54,133);
+  display: inline-block; width: 1em;
+  margin-left: -1em;
+}
+
+.reveal ul {
+  list-style: none;
+  margin-left: 1em;
+  padding-inline-start: 0px;
+}
+
+.reveal ol {
+  margin-left: 1em;
+  padding-inline-start: 0px;
+}
+
+.reveal ul ul {
+  list-style: none;
+  margin-left: 1em;
+}
+
+.reveal ul ul ul{
+  list-style: none;
+  margin-left: 1em;
+}
+
+.vertical{
+    writing-mode:tb-rl;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform: rotate(90deg);
+    white-space:nowrap;
+    display:block;
+    bottom:0;
+    width:20px;
+    height:20px;
+}
+
+.reveal .progress {
+  height: 2%;
+  background-color: rgb(123,93,52);
+  z-index: 1;
+}
+
+.reveal .progress span {
+  height: 100%;
+  background-color: rgb(39,54,133);
+  z-index: 1;
+}
+
+/*
+.reveal .controls .navigate-down, .reveal .controls .navigate-down.enabled {
+    border-top-color: rgb(39,54,133);
+}
+.reveal .controls .navigate-right, .reveal .controls .navigate-right.enabled {
+    border-left-color: rgb(39,54,133);
+}
+.reveal .controls .navigate-left, .reveal .controls .navigate-left.enabled {
+    border-right-color: rgb(39,54,133);
+}
+.reveal .controls .navigate-up, .reveal .controls .navigate-up.enabled {
+    border-bottom-color: rgb(39,54,133);
+}*/
+
+@-webkit-keyframes bounce-right-small {
+  0%, 20%, 70%, 100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  40% {
+    -webkit-transform: translateX(5px) rotateY(-30deg);
+            transform: translateX(5px) rotateY(-30deg); }
+}
+@keyframes bounce-right-small {
+  0%, 20%, 70%, 100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  40% {
+    -webkit-transform: translateX(5px) rotateY(-30deg);
+            transform: translateX(5px) rotateY(-30deg); }
+}
+
+@-webkit-keyframes bounce-down-small {
+  0%, 20%, 70%, 100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  40% {
+    -webkit-transform: translateY(5px) rotateY(-30deg);
+            transform: translateY(5px) rotateY(-30deg); }
+}
+
+@keyframes bounce-down-small {
+  0%, 20%, 70%, 100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  40% {
+    -webkit-transform: translateY(5px) rotateY(-30deg);
+            transform: translateY(5px) rotateY(-30deg); }
+}
+
+.reveal .controls .navigate-right {
+  -webkit-animation: bounce-right-small 5s infinite both ease-in-out;
+          animation: bounce-right-small 5s infinite both ease-in-out;
+}
+
+.reveal .controls .navigate-down {
+  -webkit-animation: bounce-down-small 5s infinite both ease-in-out;
+          animation: bounce-down-small 5s infinite both ease-in-out;
+}
+
+/*Used to add logo to slides*/
+@-webkit-keyframes rotate-small {
+  0%, 20%, 70%, 100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  40% {
+    -webkit-transform: translateY(5px) rotateY(-180deg);
+            transform: translateY(5px) rotateY(-180deg); }
+}
+
+@keyframes rubberband {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  3% {
+    transform: scale3d(1.125, 0.875, 1);
+  }
+
+  4% {
+    transform: scale3d(0.875, 1.125, 1);
+  }
+
+  5% {
+    transform: scale3d(1.075, 0.925, 1);
+  }
+
+  6.5% {
+    transform: scale3d(.975, 1.025, 1);
+  }
+
+  7.5% {
+    transform: scale3d(1.025, .975, 1);
+  }
+  10% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes rotate-fast {
+  0%, 1%, 4%, 5% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  1.5%, 3.5% {
+    -webkit-transform: translateY(0) rotateY(-180deg) scale3d(0.98,0.98,1);
+            transform: translateY(0) rotateY(-180deg) scale3d(0.98,0.98,1); }
+  2%, 2.5%, 3% {
+    -webkit-transform: translateY(0) scale3d(0.98,0.98,1);
+            transform: translateY(0) scale3d(0.98,0.98,1);}
+  2.25%, 2.75% {
+    -webkit-transform: translateY(0) rotateY(-180deg) scale3d(0.98,0.98,1);
+            transform: translateY(0) rotateY(-180deg) scale3d(0.98,0.98,1); }
+}
+
+.reveal aside.controls:before {
+    content: "";
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width:50px;
+    height:50px;
+    background-image: url(../Figures/logo2.png);
+    background-repeat: no-repeat;
+    background-position: bottom right; 
+    background-size: 100%;
+    background-overflow: visible;
+    -webkit-animation: rubberband 30s infinite both ease-in-out;
+            animation: rubberband 30s infinite both ease-in-out;
+}
+
+.reveal .slide-number {
+    bottom: 2%;
+    right: 4%;
+}
+
+
+/* Override table format*/
+/*DT package (datatable function)*/
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+table.dataTable tbody tr {
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+table.dataTable tbody tr.even {
+  background-color: rgba(221,221,221,0.5);
+}
+
+table.dataTable tbody tr.odd {
+  background-color: rgba(187,187,187,0.5);
+}
+
+table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
+  background-color:rgba(39,54,133,0.6) !important;
+}
+table.dataTable.hover tbody tr td:hover, table.dataTable.display tbody tr td:hover {
+  background-color:rgba(147,155,194,1) !important;
+}
+
+
+
+table.dataTable, table.dataTable tbody tr td {
+  border-bottom: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+/*kable tables, from bootstrap.css v3*/
+
+.reveal .table {
+  width: 100%;
+  max-width: 100%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: #808080;
+  border-bottom: 1px solid #808080;
+}
+
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td, {
+/*    padding: $table-cell-padding;
+        line-height: $line-height-base;*/
+  vertical-align: top;
+  border-top: 1px solid $table-border-color;
+}
+
+/*Bottom align for column headings*/
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #808080;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+/*Remove top border from thead by default*/
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+/* Account for multiple tbody instances*/
+.table > tbody + tbody {
+  border-top: 2px solid #000000;
+}
+
+/* Nesting*/
+/*Adjusted below
+.table .table {
+    background-color: #dddddd;
+}*/
+.table-striped > tbody > tr:nth-of-type(even) {
+    background-color: rgba(221,221,221,0.5);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: rgba(187,187,187,0.5);
+}
+
+.table-hover > tbody > tr:hover {
+  background-color:rgba(39,54,133,0.6) !important;
+}
+
+.table-hover > tbody > tr >td:hover {
+  background-color:rgba(147,155,194,1) !important;
+}
+
+/* Remove all cap titles*/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    text-transform: none;
+}
+
+/* Remove picture borders*/
+.reveal section img {
+    background:none;
+    border:none;
+    box-shadow:none;
+}
+
+tr.odd {
+    line-height: 2.2vh;
+    font-size: 2.2vh;
+}
+tr.even {
+    line-height: 2.2vh;
+    font-size: 2.2vh;
+}
+
+/* Not needed in 3.8.0
+td { font-size: 11px; }
+*/
+
+div.margins {
+  margin-left:5%;
+  margin-right:5%;
+}
+
+
+/* Fix fragment current-visible items to not take up space when not visible */
+.fragment.current-visible.visible:not(.current-fragment) {
+    animation: removed-item-animation 0.5s cubic-bezier(0.6, -0.05, 0.9, 0.9) forwards;
+    transform-origin: 0% 100%;
+}
+@keyframes removed-item-animation {
+    0% {
+        opacity: 1;
+        transform: rotateZ(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(900px) rotateZ(70deg);
+        line-height: 0px;
+        height: 0px;
+        padding: 0px;
+        border: 0px;
+        margin: 0px;
+        display: none;
+    }
+}
+.fragment.current-visible.visible.current-fragment {
+    animation: added-item-animation 1s cubic-bezier(0.6, -0.05, 0.9, 0.9) forwards;
+    transform-origin: 0% 100%;
+}
+@keyframes added-item-animation {
+    0% {
+        opacity: 0;
+        transform: rotateZ(0);
+    }
+    50% {
+        opacity: 0;
+        transform: rotateZ(0);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+/*******************************************************************************
+*                                                                              *
+* Code styling for R's revealjs                                                *
+*                                                                              *
+*******************************************************************************/
+
+.reveal pre.sourceCode {
+  margin: 5px auto;
+}
+
+.reveal pre.sourceCode code {
+  background-color:rgb(248, 248, 248)
+}
+
+.reveal pre code {
+    background-color:rgb(240, 240, 255)
+}
+
+/*******************************************************************************
+*                                                                              *
+* Styling for datacamp light to make it work in Rmarkdown revealjs             *
+*                                                                              *
+*******************************************************************************/
+
+
+.lm_item {
+    font: 24px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace !important;
+}
+
+/*******************************************************************************
+*                                                                              *
+* Styling for plotly's ggplotly to make it work in Rmarkdown revealjs          *
+*                                                                              *
+*******************************************************************************/
+
+div.plotly {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+/*******************************************************************************
+*                                                                              *
+* Custom slide formats for reveal.js                                           *
+*                                                                              *
+*******************************************************************************/
+
+/***************************************
+* Fix for search div                   *
+***************************************/
+div.searchdiv {
+   z-index: 30;
+}
+
+/***************************************
+* Default -- faded background          *
+***************************************/
+
+section.default {
+  background-color:rgba(255,255,255,0.85) !important;
+  -webkit-print-color-adjust: exact;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit  */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko         */
+  box-sizing: border-box; 
+  border: 10px;
+  border-style: double;
+  border-color: rgba(255,255,255,0.5);
+  padding: 20px !important;
+  top: 32px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  width:95% !important;
+}
+
+/***************************************
+* For section slides                   *
+***************************************/
+
+section.header {
+  background-color:rgba(255,255,255,0.85) !important;
+  -webkit-print-color-adjust: exact;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit  */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko         */
+  box-sizing: border-box;
+  border: 10px;
+  border-style: double;
+  border-color: rgba(255,255,255,0.5);
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 0%;
+  width:90% !important;
+  font-size: 1.3em;
+}
+
+/***************************************
+* Inverted colors (doesn't print well) *
+***************************************/
+
+/*
+section.invert {
+  color:rgb(255,255,255)
+}*/
+section.invert h1 {
+  color:rgb(255,255,255)
+}
+
+
+
+/*******************************************************************************
+*                                                                              *
+* Custom elements for Rmarkdown                                                *
+*                                                                              *
+*******************************************************************************/
+
+/***************************************
+* Small code div (large textblocks)    *
+***************************************/
+
+div.code-small pre {
+  font-size: 4px;
+}
+
+/***************************************
+* Expanded blockquote                  *
+***************************************/
+
+.reveal blockquote {
+  margin-left: 1em;
+  margin-right: 1em;
+  border-left: 10px solid rgb(39,54,133);
+  background: #f9f9f9;
+  font-style: normal;
+  width: 90%;
+}
+
+.reveal blockquote p {
+  margin-left:5%;
+  margin-right:5%;
+  text-align: left;
+  padding-left: 1em ;
+  text-indent: -1em ;
+}
+
+/***************************************
+* Quote format (use with '> ')         *
+***************************************/
+
+div.code-alert pre {
+  box-shadow: 0px 0px 6px rgba(40, 40, 255, 0.5);
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/*Old clearfix hack
+div.clearfix {
+  content: "";
+  clear: both;
+  display: table;
+  width: 100%;
+}*/
+
+/***************************************
+* Justified divs                       *
+***************************************/
+
+div.alignleft {
+  text-align: left;
+  margin-left:10%;
+}
+
+div.alignright {
+  text-align: right;
+  margin-right:10%;
+}
+
+div.aligncenter {
+  text-align: center;
+}
+
+/***************************************
+* Two columns                          *
+***************************************/
+
+div.left {
+  box-sizing:border-box;
+  text-align: center;
+  float: left;
+  width:48%;
+  background-color:rgba(255,255,255,0.3) !important;
+  z-index:-10;
+  margin: 1%;
+  padding: 1%;
+  border: 2px;
+  border-style: solid;
+  border-color: rgba(255,255,255,0.5);
+}
+div.left img{
+  background-color:rgba(255,255,255,0) !important;
+}
+
+div.right {
+  box-sizing:border-box;
+  float: right;
+  text-align: center;
+  width:48%;
+  background-color:rgba(255,255,255,0.3) !important;
+  z-index:-10;
+  margin: 1%;
+  padding: 1%;
+  border: 2px;
+  border-style: solid;
+  border-color: rgba(255,255,255,0.5);
+}
+div.right img{
+  background-color:rgba(255,255,255,0) !important;
+}
+
+/*******************************************************************************
+*                                                                              *
+* Custom text formats for Rmarkdown (spans)                                    *
+*                                                                              *
+*******************************************************************************/
+
+/*Highlight text*/
+span.smuhi {
+  color: rgb(123,93,52);
+  font-style: italic;
+}
+span.hi1 {
+  color: #22aa22;
+}
+span.hi2 {
+  color: #aa2222;
+}
+
+/* adds highlight to em text*/
+em {
+    color: rgb(123, 93, 52)
+}
+
+/*Tiny text*/
+p.tiny {
+  font-size:8px;
+  line-height:0px
+}
+
+/*Easy underlining*/
+
+p.u {
+  text-decoration: underline
+}
+
+p.uu {
+  border-bottom: 3px double;
+}
+
+a.ref {
+    color: rgb(39,54,133);
+    background-color: #d9dde2;
+    border-radius: 5px;
+    font-family: monospace;
+}
+
+
+/* Tooltips for definitions*/
+/*smu blue: rgb(39,54,133); smu gold: rgb(123,93,52)*/
+[tooltip]:before {
+    position : fixed;
+    content : attr(tooltip);
+    font-size: 60%;
+    opacity : 0;
+    
+    transition: all 0.15s ease 0.3s;
+    padding: 5px;
+    color: rgb(39,54,133);
+    border-radius: 5px;
+}
+[tooltip]:hover:before {
+    opacity : 1;
+    
+    background: #ddd;
+    margin-top: 50px;
+    margin-left: 0px;
+    transition: all 0.10s ease;
+}
+
+span[tooltip] {
+    color: rgb(39,54,133);
+    background-color: #d9dde2;
+    border-radius: 5px;
+}
+
+code[tooltip] {
+    color: rgb(39,54,133);
+    background-color: #d9dde2;
+    border-radius: 5px;
+}
+
+[slide-background] {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+
+
+
+/*For backwards compatibility only*/
+section.faded {
+  background-color:rgba(255,255,255,0.85) !important;
+  -webkit-print-color-adjust: exact;
+  border: 10px;
+  border-style: double;
+  border-color: rgba(255,255,255,0.5);
+  padding: 20px !important;
+  left: -30px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  width:95% !important;
+}
+img.fill {
+    max-width: 1024;
+    max-height: 600px;
+}
+
+span.shrinkimg > img {
+    max-width: 600px;
+    max-height: 400px;
+}

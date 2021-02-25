@@ -1,0 +1,5 @@
+# Python temporary files
+__pycache__
+settings.pyc
+# Experimental katex plugin fixes (that don't work yet)
+Templates/plugins/katex_new/

@@ -1,5 +1,5 @@
 # PAPERR
-Python script to Assemble Presentations for Education using Rmarkdown and Revealjs.  Takes Rmarkdown files knitted using the revealjs library and converts them to presentation slides (html), handout slides (html & pdf, with options for pre- & post-presentation copies), and code extraction output (html).  Contains many compatibility fixes and convenience additions.
+**P**ython script to **A**ssemble **P**resentations for **E**ducation using **R**markdown and **R**eveal.js.  This script and template takes Rmarkdown files knitted using the revealjs R library and converts them to presentation slides (html), handout slides (html & pdf, with options for pre- & post-presentation copies), and code extraction output (html).  Contains many compatibility fixes and convenience additions.
 
 Requirements:
 1. [https://www.r-project.org/](R) (tested on 3.4.0 and up)

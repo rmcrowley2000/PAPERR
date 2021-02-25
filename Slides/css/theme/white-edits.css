@@ -1,0 +1,15 @@
+/*********************************************
+ * EDITS
+ *********************************************/
+body {
+  background: #888;
+  background-color: #000; }
+
+[tooltip]:before {
+    position : absolute;
+    content : attr(tooltip);
+    opacity : 0;
+}
+[tooltip]:hover:before {
+    opacity : 1;
+}
