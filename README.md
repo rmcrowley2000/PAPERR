@@ -2,16 +2,16 @@
 **P**ython script to **A**ssemble **P**resentations for **E**ducation using **R**markdown and **R**eveal.js.  This script and template takes Rmarkdown files knitted using the revealjs R library and converts them to presentation slides (html), handout slides (html & pdf, with options for pre- & post-presentation copies), and code extraction output (html).  Contains many compatibility fixes and convenience additions.
 
 Requirements:
-1. [https://www.r-project.org/](R) (tested on 3.4.0 and up)
-2. [https://github.com/rstudio/rmarkdown](Rmarkdown)
-3. The [https://github.com/hakimel/reveal.js](revealjs) R library
-4. [https://www.python.org/](Python 3)
-5. [https://github.com/astefanutti/decktape/tree/v2.9.3](decktape-2.9.3)
+1. [R](https://www.r-project.org/) (tested on 3.4.0 and up)
+2. [Rmarkdown](https://github.com/rstudio/rmarkdown)
+3. The [revealjs](https://github.com/rstudio/revealjs) R library
+4. [Python 3](https://www.python.org/)
+5. [decktape-2.9.3](https://github.com/astefanutti/decktape/tree/v2.9.3)
     - OPTIONAL: needed for printing out PDF files
     - INSTALLATION NOTES: If on Linux, store decktape-2.9.3 either:
         1. In the base folder and rename it to decktape-2.9.3-linux or decktape-2.9.3-windows depending on your operating system
         2. Put the folder somewhere that is directly on PATH, e.g. in ~/bin/ on Linux or add it to the PATH environmental variable in windows.
-6. [https://www.ghostscript.com/](Ghostscript)
+6. [Ghostscript](https://www.ghostscript.com/)
     - OPTIONAL: needed for compressing PDF output
     - INSTALLATION NOTES: Make sure ghostscript can be called from the terminal or is on PATH
 
@@ -60,14 +60,14 @@ Troubleshooting:
 
 Thanks to the following projects that make this possible:
 
-1. [https://github.com/rstudio/rmarkdown](rstudio/Rmarkdown)
-2. [https://github.com/hakimel/reveal.js](hakimel/reveal.js)
-3. [https://github.com/rstudio/revealjs](rstudio/revealjs)
-4. [https://github.com/astefanutti/decktape/releases](astefanutti/decktape)
-5. [https://github.com/KaTeX/KaTeX](KaTeX/KaTeX)
-6. [https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard](rajgoel/reveal.js-plugins/chalkboard)
-7. [https://github.com/marcins/revealjs-simple-gallery](marcins/revealjs-simple-gallery)
-8. [https://www.ghostscript.com/](Ghostscript)
+1. [rstudio/Rmarkdown](https://github.com/rstudio/rmarkdown)
+2. [hakimel/reveal.js](https://github.com/hakimel/reveal.js)
+3. [rstudio/revealjs](https://github.com/rstudio/revealjs)
+4. [astefanutti/decktape](https://github.com/astefanutti/decktape/)
+5. [KaTeX/KaTeX](https://github.com/KaTeX/KaTeX)
+6. [rajgoel/reveal.js-plugins/chalkboard](https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard)
+7. [marcins/revealjs-simple-gallery](https://github.com/marcins/revealjs-simple-gallery)
+8. [Ghostscript](https://www.ghostscript.com/)
 9. All the artists behind the included CC0 backgrounds
 
 Copyright 2021 Richard M. Crowley (https://rmc.link/)
