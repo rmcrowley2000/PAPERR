@@ -1,0 +1,353 @@
+---
+title:
+output:
+  revealjs::revealjs_presentation:
+    theme: white
+    css: white-edits.css
+    highlight: tango
+    transition: slide
+    self_contained: false
+    reveal_plugins: ["chalkboard","search"]
+    transitionSpead: fast
+    mathjax: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG"
+    reveal_options:
+      minScale: 1.0
+      maxScale: 1.0
+      width: 1024
+      height: 768
+      slideNumber: true
+      controlsTutorial: true
+      chalkboard:
+        theme: whiteboard
+        readOnly: false
+---
+
+## TITLE {data-background="../Backgrounds/title.jpg" class="header no-toc-progress" data-state="no-toc-progress"}
+
+<!-- "reveal_plugins:..." and "chalkboard:" are handled by prep.py -->
+```{r helpers, echo=FALSE, warning=FALSE, message=F}
+library(knitr)
+library(kableExtra)
+html_df <- function(text, cols=NULL, col1=FALSE, full=F) {
+  if(!length(cols)) {
+    cols=colnames(text)
+  }
+  if(!col1) {
+    kable(text,"html", col.names = cols, align = c("l",rep('c',length(cols)-1))) %>%
+      kable_styling(bootstrap_options = c("striped","hover"), full_width=full)
+  } else {
+    kable(text,"html", col.names = cols, align = c("l",rep('c',length(cols)-1))) %>%
+      kable_styling(bootstrap_options = c("striped","hover"), full_width=full) %>%
+      column_spec(1,bold=T)
+  }
+}
+```
+
+<h3 class="date"><br>DATE</h3>
+<h2 class="author"><br>Dr. Richard M. Crowley<br>rcrowley@smu.edu.sg<br><a href="http://rmc.link/">http://rmc.link/</a></h2>
+
+# SECTION 1 {data-background="../Backgrounds/section.jpg" class="header"}
+
+## BULLETS {data-background="../Backgrounds/default.jpg" class="default"}
+
+- 1
+    - 1.1 _italic_
+- 2
+    - 2.1 *bold*
+
+## WEBSITE{data-background-iframe="http://quotes.wsj.com/index/SG/STI/advanced-chart"}
+
+## QUOTE {data-background="../Backgrounds/default.jpg" class="default"}
+
+> $Box1
+
+## TWO COLUMN {data-background="../Backgrounds/default.jpg" class="default"}
+
+<div class="clearfix">
+<div class="left">
+Left
+</div>
+<div class="right">
+Right
+</div>
+</div>
+
+## MATH {data-background="../Backgrounds/default.jpg" class="default"}
+
+Some inline math like $\beta \times \gamma$ and:
+
+$$
+\begin{align*}
+  \alpha &= 1 + 1 + 1\\
+  &= 3
+\end{align*}
+$$
+
+# SECTION 2 {data-background="../Backgrounds/section.jpg" class="header"}
+
+## DATA: with percentage bars {data-background="../Backgrounds/default.jpg" class="default"}
+
+```{r format_freq, echo=FALSE, warning = FALSE}
+library(DT)
+names <- c("Text", "Media", "Link", "Both")
+vala <- as.vector(c(0.19,0.11,0.53,0.17))
+valf <- as.vector(c(0.17,0.04,0.66,0.12))
+valb <- as.vector(c(0.17,0.10,0.56,0.17))
+valo <- as.vector(c(0.23,0.15,0.46,0.16))
+
+df1 <- data.frame(Name=names, All=vala, Financial=valf, NonFinancial=valb, NonBusiness=valo)
+
+datatable(df1, rownames = FALSE, options = list(
+  searching = FALSE,
+  columnDefs = list(list(width = '200px', targets = "_all")),
+  fillContainer = TRUE,
+  scrollY = 396,
+  class = "display",
+  paging = FALSE,
+  info = FALSE
+)) %>%
+  formatPercentage(c('All','Financial','NonFinancial','NonBusiness'),digits=2) %>%
+  formatStyle(
+    names(df1[,-1]),
+    background=styleColorBar(range(df1[,-1]),'#a2b1ff'),
+    backgroundSize = '100% 90%',
+    backgroundRepeat = 'no-repeat',
+    backgroundPosition = 'center'
+  )
+```
+
+## DATA: frequency {data-background="../Backgrounds/default.jpg" class="default"}
+
+```{r event_freq, echo=FALSE, warning = FALSE}
+library(DT)
+names <- c("M&A", "Dividends", "Financial", "Mgmt Forecast", "Executive","Awards", "Contract", "Analyst Forecast", "Insider trade", "10-K", "10-Q", "8-K")
+vals <- as.vector(c(0.066, 0.025, 0.080, 0.027, 0.044, 0.0056, 0.032, 0.0090, 0.157, 0.0046, 0.013, 0.051))
+
+df1 <- data.frame(Name=names, Percent=vals)
+
+datatable(df1, rownames = FALSE, options = list(
+  searching = FALSE,
+  fillContainer = TRUE,
+  scrollY = 396,
+  class = "display",
+  paging = FALSE,
+  info = FALSE
+)) %>%
+  formatPercentage('Percent',digits=2) %>%
+  formatStyle(
+    'Percent',
+    background=styleColorBar(df1$Percent,'#a2b1ff'),
+    backgroundSize = '100% 90%',
+    backgroundRepeat = 'no-repeat',
+    backgroundPosition = 'center'
+  )
+```
+
+## DATA: plotly.js {data-background="../Backgrounds/default.jpg" class="default"}
+
+```{r time graph, echo=FALSE, warning = FALSE, message = FALSE}
+suppressMessages(library(plotly))
+m <- list(
+  l = 60,
+  r = 50,
+  b = 60,
+  t = 40,
+  pad = 4
+)
+suppressMessages(library(readr))
+
+data <- read_csv("../Data/example.csv")
+df = data.frame(data)
+
+plot_ly(df,x=~days,y=~neutral, name='Neutral news', type='scatter', mode='lines') %>%
+  add_trace(y=~negative, name='Negative news', mode='lines') %>%
+  add_trace(y=~positive, name='Positive news', mode='lines') %>%
+  layout(autosize = F, width = 800, height = 500, margin = m, title = "Tweets around financial news", 
+         xaxis=list(title="Days relative to financial news"), yaxis=list(title="% days with tweets"))
+```
+
+## What is analytics? {data-background="../Backgrounds/default.jpg" class="default"}
+
+> Simply put: Answering questions using data
+
+- Additional layers we can add to the definition:
+    - Answering questions using *a lot of* data
+    - Answering questions using data *and statistics*
+    - Answering questions using data *and computers*
+
+```{r, eval=TRUE, include=FALSE, warning=FALSE, message=FALSE}
+# Google ngrams for Data
+library('ngramr')
+ngd <- c("(Analytics + analytics)", "(Machine learning + machine learning)")
+```
+```{r, eval=TRUE, echo=FALSE, fig.width=7, fig.height=2.8}
+suppressPackageStartupMessages(library(curl))
+if(!is.null(curl::nslookup("r-project.org", error = FALSE))) {
+  ggram(ngd, year_start=1960, geom = "area", google_theme=F, smoothing = 3) + theme(legend.position="bottom", legend.direction="horizontal")
+} else {
+  print("No internet to get data")
+}
+```
+<div class="tag">Made using <a href="https://github.com/seancarmody/ngramr" class="ref">seancarmody/ngramr</a></div>
+
+## GRAPH: gpplot2 + ggplotly {data-background="../Backgrounds/default.jpg" class="default"}
+
+```{r graph1, echo=FALSE, warning=FALSE, message=FALSE, fig.height = 5, fig.width = 4.3}
+library(readr)
+df <- read_csv("../Data/example2.csv")
+df <- df[order(df$tic,df$year),]
+df$ni_lag <- c(NA, df$ni[1:nrow(df)-1])
+df <- df[df$year == 2017,]
+df <- df[!(is.na(df$ni) | is.na(df$ni_lag)),]
+library(ggplot2)
+suppressPackageStartupMessages(library(plotly))
+cor <- cor(x=df$ni, y=df$ni_lag, method="pearson")
+if(nrow(df)>200) {
+  df <- df[sample(nrow(df), 200),]
+}
+```
+
+<div class="left">
+- Past company earnings predicts future company earnings
+    - Some earnings are stable over time (Ohlsson model)
+    - Correlation: `r cor`
+</div>
+<div class="right">
+```{r graph1_part2, echo=FALSE, warning=FALSE, message=FALSE, fig.height = 5, fig.width = 4.3}
+plot <- ggplot(df, aes(x=ni_lag, y=ni)) + 
+  geom_point(shape=1, aes(text=sprintf("Ticker: %s", tic))) + 
+  geom_smooth(aes(x=ni_lag, y=ni), method=lm, se=T) + 
+  labs(x="2016 Net Income",
+       y="2017 Net Income")
+ggplotly(plot, tooltip="text")
+```
+</div>
+
+
+
+## GRAPHS: replacing animation {data-background="../Backgrounds/default.jpg" class="default"}
+
+```{r graph3, eval=TRUE, include=FALSE, warning=FALSE, message=FALSE}
+drown <- c(109,102,102,98,85,95,96,98,123,94,102) # US CDC data, 1999 to 2009 (falling in)
+drown2 <- c(421,465,494,538,430,530,511,600,582,605,603)
+ic <- c(16.1, 15.8, 16.2, 15.9 ,14.6 ,15.1 ,15.3, 14.8, 14.2 ,13.9 ,14 ,13.2 ,13.2 ,13 ,12.5 ,12.9 ,13.1) # Statista, 2000 to 2016
+icprice <- c(126.858,128.467,130.858,131.733,134.808,137.508,144.592,150.575,155.500,161.742,164.375,173.408,179.033,175.467,178.250,177.575,179.233,183.373,192.768,196.637,195.055,209.161,215.524,215.489,215.412,219.201,219.452,219.903,219.593) # CPI data for ice cream and related products, 1990-2018
+cancerthursday <- c(80262,80994,81321,81988,81390,82682,82109,82516,82663,83166,84978,84742) # CDC (tylervigen.com)
+# https://futurism.com/correlation-vs-causation-2/
+df <- data.frame(drown=drown2[2:length(drown2)],
+                 icecream=ic[1 : length(drown2)-1],
+                 icecreamprice=icprice[11:(length(drown2)+9)],
+                 year=2000:2009)
+df$drown <- df$drown / mean(df$drown)
+df$icecream <- df$icecream / mean(df$icecream)
+df$icecream2 <- df$icecream*df$icecreamprice / mean(df$icecream*df$icecreamprice)
+df$icecream3 <- df$icecreamprice / mean(df$icecreamprice)
+cor_unit <- cor(x=df$icecream, y=df$drown)
+cor_rev <- cor(x=df$icecream2, y=df$drown)
+cor_price <- cor(x=df$icecreamprice, y=df$drown)
+library(ggplot2)
+
+library(reshape2)
+dm <- melt(df[c("drown", "icecream2", "year")],id.var=3)
+plot1 <- ggplot(dm, aes(x=year, y=value, colour=variable)) + 
+  geom_point(shape=1) +
+  geom_smooth(method=loess, se=F) +
+  labs(x="Year",
+       y="% of average year") + 
+  scale_x_continuous(breaks=c(2000,2003,2006,2009)) + 
+  scale_colour_discrete(name="Statistic",
+                        breaks=c("icecream2","drown"),
+                        labels=c("Ice cream revenue","Drowning in pools"))
+dm <- melt(df[c("drown", "icecream3", "year")],id.var=3)
+plot2 <- ggplot(dm, aes(x=year, y=value, colour=variable)) + 
+  geom_point(shape=1) +
+  geom_smooth(method=loess, se=F) +
+  labs(x="Year",
+       y="% of average year") + 
+  scale_x_continuous(breaks=c(2000,2003,2006,2009)) + 
+  scale_colour_discrete(name="Statistic",
+                        breaks=c("icecream3","drown"),
+                        labels=c("Ice cream volume sold","Drowning in pools"))
+dm <- melt(df[c("drown", "icecream", "year")],id.var=3)
+plot3 <- ggplot(dm, aes(x=year, y=value, colour=variable)) + 
+  geom_point(shape=1) +
+  geom_smooth(method=loess, se=F) +
+  labs(x="Year",
+       y="% of average year") + 
+  scale_x_continuous(breaks=c(2000,2003,2006,2009)) + 
+  scale_colour_discrete(name="Statistic",
+                        breaks=c("icecream","drown"),
+                        labels=c("Ice cream price","Drowning in pools"))
+```
+
+<div class="clearfix">
+<div class="left">
+- Ice cream revenue predicts pool drownings in the US
+    - ???
+    - Correlation is...<span class="fragment" data-fragment-index="1"> only `r cor_rev`</span>
+
+<span class="fragment fade-up" data-fragment-index="2">
+<ul><li>What about units sold?</li>
+<ul><li>Correlation is negative!!!</li>
+<li>`r cor_unit`</li></ul></ul>
+</span>
+<span class="fragment fade-up" data-fragment-index="3">
+<ul><li>What about price?</li>
+<ul><li>Correlation is `r cor_price`</li></ul></ul>
+</span>
+</div>
+<div class="right fragment current-visible" style="position:relative; vertical-align: top;" data-fragment-index="1">
+```{r graph3_part2, echo=FALSE, warning=FALSE, message=FALSE, fig.height = 4, fig.width = 4.3}
+suppressPackageStartupMessages(library(plotly))
+ggplotly(plot1)
+```
+</div>
+<div class="right fragment current-visible" style="position:relative; vertical-align: top;" data-fragment-index="2">
+```{r graph3_part4, echo=FALSE, warning=FALSE, message=FALSE, fig.height = 4, fig.width = 4.3}
+suppressPackageStartupMessages(library(plotly))
+ggplotly(plot3)
+```
+</div>
+<div class="right fragment current-visible" style="position:relative; vertical-align: top;" data-fragment-index="3">
+```{r graph3_part3, echo=FALSE, warning=FALSE, message=FALSE, fig.height = 4, fig.width = 4.3}
+suppressPackageStartupMessages(library(plotly))
+ggplotly(plot2)
+```
+</div>
+</div>
+
+> This is where the "educated" comes in
+
+# SECTION: Coding {data-background="../Backgrounds/section.jpg" class="header"}
+
+## What do individuals use analytics for? {data-background="../Backgrounds/default.jpg" class="default"}
+
+- A great package for machine learning in python is <a href="https://radimrehurek.com/gensim/" class="ref">gensim</a>
+- R:
+
+```{r, eval=TRUE}
+# Addition uses '+'
+1 + 1
+
+# Subtraction uses '-'
+2 - 1
+```
+
+## Packages used for these slides {data-background="../Backgrounds/coding.jpg" class="default"}
+
+- kableExtra
+- knitr
+- revealjs
+
+## Custom code {data-background="../Backgrounds/coding.jpg" class="default"}
+
+<small style="width:100%">
+```{r, eval=F}
+# List custom routines here
+
+```
+</small>
+
+## NOTES {class="never"}
+
+- Won't be displayed ever

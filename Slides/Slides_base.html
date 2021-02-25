@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Slides.utf8</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="Slides_files/reveal.js-3.8.0/css/reveal.css"/>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="Slides_files/reveal.js-3.8.0/css/theme/white.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="white-edits-3.8.0.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <link href="Slides_files/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+    <link href="Slides_files/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+    <script src="Slides_files/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+    <script src="Slides_files/jquery-1.12.4/jquery.min.js"></script>
+    <link href="Slides_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="Slides_files/datatables-binding-0.17/datatables.js"></script>
+    <link href="Slides_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="Slides_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="Slides_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+    <link href="Slides_files/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+    <script src="Slides_files/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+    <script src="Slides_files/plotly-binding-4.9.2.2/plotly.js"></script>
+    <script src="Slides_files/typedarray-0.1/typedarray.min.js"></script>
+    <link href="Slides_files/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="Slides_files/plotly-main-1.52.2/plotly-latest.min.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="title" class="slide level2 header no-toc-progress" data-background="../Backgrounds/title.jpg" data-state="no-toc-progress">
+<h2>TITLE</h2>
+<!-- "reveal_plugins:..." and "chalkboard:" are handled by prep.py -->
+<h3 class="date">
+<br>DATE
+</h3>
+<h2 class="author">
+<br>Dr. Richard M. Crowley<br><a href="mailto:rcrowley@smu.edu.sg">rcrowley@smu.edu.sg</a><br><a href="http://rmc.link/">http://rmc.link/</a>
+</h2>
+</section>
+<section><section id="section-1" class="title-slide slide level1 header" data-background="../Backgrounds/section.jpg"><h1>SECTION 1</h1></section><section id="bullets" class="slide level2 default" data-background="../Backgrounds/default.jpg">
+<h2>BULLETS</h2>
+<ul>
+<li>1
+<ul>
+<li>1.1 <em>italic</em></li>
+</ul></li>
+<li>2
+<ul>
+<li>2.1 <em>bold</em></li>
+</ul></li>
+</ul>
+</section><section id="website" class="slide level2" data-background-interactive data-background-iframe="http://quotes.wsj.com/index/SG/STI/advanced-chart">
+<h2>WEBSITE</h2>
+</section><section id="quote" class="slide level2 default" data-background="../Backgrounds/default.jpg">
+<h2>QUOTE</h2>
+<blockquote>
+<p>$Box1</p>
+</blockquote>
+</section><section id="two-column" class="slide level2 default" data-background="../Backgrounds/default.jpg">
+<h2>TWO COLUMN</h2>
+<div class="clearfix">
+<div class="left">
+<p>Left</p>
+</div>
+<div class="right">
+<p>Right</p>
+</div>
+</div>
+</section><section id="math" class="slide level2 default" data-background="../Backgrounds/default.jpg">
+<h2>MATH</h2>
+<p>Some inline math like <span class="math inline">\(\beta \times \gamma\)</span> and:</p>
+<p><span class="math display">\[
+\begin{align*}
+  \alpha &amp;= 1 + 1 + 1\\
+  &amp;= 3
+\end{align*}
+\]</span></p>
+</section></section>
+<section><section id="section-2" class="title-slide slide level1 header" data-background="../Backgrounds/section.jpg"><h1>SECTION 2</h1></section><section id="data-with-percentage-bars" class="slide level2 default" data-background="../Backgrounds/default.jpg">
+<h2>DATA: with percentage bars</h2>
+<div id="htmlwidget-879385e84c4698ce24d5" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-879385e84c4698ce24d5">{"x":{"filter":"none","data":[["Text","Media","Link","Both"],[0.19,0.11,0.53,0.17],[0.17,0.04,0.66,0.12],[0.17,0.1,0.56,0.17],[0.23,0.15,0.46,0.16]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Name<\/th>\n      <th>All<\/th>\n      <th>Financial<\/th>\n      <th>NonFinancial<\/th>\n      <th>NonBusiness<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"width":"200px","targets":"_all"},{"className":"dt-right","targets":[1,2,3,4]}],"fillContainer":true,"scrollY":396,"class":"display","paging":false,"info":false,"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.040000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(0.660000 - value, 0)/0.620000 * 100 + '%, #a2b1ff ' + Math.max(0.660000 - value, 0)/0.620000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.040000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(0.660000 - value, 0)/0.620000 * 100 + '%, #a2b1ff ' + Math.max(0.660000 - value, 0)/0.620000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.040000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(0.660000 - value, 0)/0.620000 * 100 + '%, #a2b1ff ' + Math.max(0.660000 - value, 0)/0.620000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.040000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(0.660000 - value, 0)/0.620000 * 100 + '%, #a2b1ff ' + Math.max(0.660000 - value, 0)/0.620000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.rowCallback"],"jsHooks":[]}</script>
+</section><section id="data-frequency" class="slide level2 default" data-background="../Backgrounds/default.jpg">
+<h2>DATA: frequency</h2>
+<div id="htmlwidget-0829a2b6e80c82dc5771" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0829a2b6e80c82dc5771">{"x":{"filter":"none","data":[["M&amp;A","Dividends","Financial","Mgmt Forecast","Executive","Awards","Contract","Analyst Forecast","Insider trade","10-K","10-Q","8-K"],[0.066,0.025,0.08,0.027,0.044,0.0056,0.032,0.009,0.157,0.0046,0.013,0.051]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Name<\/th>\n      <th>Percent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"fillContainer":true,"scrollY":396,"class":"display","paging":false,"info":false,"columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 2, 3, \",\", \".\");\n  }"},{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.004600 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(0.157000 - value, 0)/0.152400 * 100 + '%, #a2b1ff ' + Math.max(0.157000 - value, 0)/0.152400 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\n}"}},"evals":["options.columnDefs.0.render","options.rowCallback"],"jsHooks":[]}</script>
+</section><section id="data-plotly.js" class="slide level2 default" data-background="../Backgrounds/default.jpg">
+<h2>DATA: plotly.js</h2>
+<div id="htmlwidget-3312fe9e14983edb7823" style="width:768px;height:576px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3312fe9e14983edb7823">{"x":{"visdat":{"3f6d5f5fb6a5":["function () ","plotlyVisDat"]},"cur_data":"3f6d5f5fb6a5","attrs":{"3f6d5f5fb6a5":{"x":{},"y":{},"mode":"lines","name":"Neutral news","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"3f6d5f5fb6a5.1":{"x":{},"y":{},"mode":"lines","name":"Negative news","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true},"3f6d5f5fb6a5.2":{"x":{},"y":{},"mode":"lines","name":"Positive news","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true}},"layout":{"width":800,"height":500,"margin":{"b":60,"l":60,"t":40,"r":50,"pad":4},"autosize":false,"title":"Tweets around financial news","xaxis":{"domain":[0,1],"automargin":true,"title":"Days relative to financial news"},"yaxis":{"domain":[0,1],"automargin":true,"title":"% days with tweets"},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[-5,-4,-3,-2,-1,0,1,2,3,4,5],"y":[0.5727815,0.5648386,0.5822306,0.5690852,0.5708283,0.6002334,0.5743504,0.587159,0.5876913,0.5822067,0.5879721],"mode":"lines","name":"Neutral news","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[-5,-4,-3,-2,-1,0,1,2,3,4,5],"y":[0.5783108,0.5817113,0.5836514,0.5892042,0.5880392,0.6193102,0.6010298,0.5940919,0.5901212,0.5820045,0.584654],"mode":"lines","name":"Negative news","type":"scatter","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[-5,-4,-3,-2,-1,0,1,2,3,4,5],"y":[0.5764042,0.5810657,0.5720221,0.5779698,0.5855681,0.6346906,0.5991431,0.5892022,0.5843968,0.5781006,0.5792769],"mode":"lines","name":"Positive news","type":"scatter","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"line":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</section><section id="what-is-analytics" class="slide level2 default" data-background="../Backgrounds/default.jpg">
+<h2>What is analytics?</h2>
+<blockquote>
+<p>Simply put: Answering questions using data</p>
+</blockquote>
+<ul>
+<li>Additional layers we can add to the definition:
+<ul>
+<li>Answering questions using <em>a lot of</em> data</li>
+<li>Answering questions using data <em>and statistics</em></li>
+<li>Answering questions using data <em>and computers</em></li>
+</ul></li>
+</ul>
+<img src="Slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="672" />
+<div class="tag">
+Made using <a href="https://github.com/seancarmody/ngramr" class="ref">seancarmody/ngramr</a>
+</div>
+</section><section id="graph-gpplot2-ggplotly" class="slide level2 default" data-background="../Backgrounds/default.jpg">
+<h2>GRAPH: gpplot2 + ggplotly</h2>
+<div class="left">
+<ul>
+<li>Past company earnings predicts future company earnings
+<ul>
+<li>Some earnings are stable over time (Ohlsson model)</li>
+<li>Correlation: 0.8628805</li>
+</ul></li>
+</ul>
+</div>
+<div class="right">
+<div id="htmlwidget-d8f7505b095847da6315" style="width:412.8px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d8f7505b095847da6315">{"x":{"data":[{"x":[47.7,2676,-38.218,83.257,101.535,442.034,139.283,1400,-1.133,34.766,172.745,0.766,5.851,2.689,2.513,-497,142.949,2271,158.824,631.1,4.414,53.2,839,814,27.581,80.5,86.477,33.315,6.993,-0.004,456.921,4809,995.2,-6132,2781,489.001,57.2,219.414,34.252,610.9,5408],"y":[56.5,1919,-3.029,1.744,125.785,488.456,292.536,477,-2.747,11.376,310.12,0.316,4.052,-3.626,-0.482,43,543.878,1904,243.887,3000.4,-3.214,58.1,866,1034,36.593,232,80.509,56.195,-9.451,-0.004,90.133,1655,1010.2,-4074,1922,398.424,3.8,350.255,49.365,1912.6,2736],"text":["Ticker: 1","Ticker: 2","Ticker: 3","Ticker: 4","Ticker: 5","Ticker: 6","Ticker: 7","Ticker: 8","Ticker: 9","Ticker: 10","Ticker: 11","Ticker: 12","Ticker: 13","Ticker: 14","Ticker: 16","Ticker: 17","Ticker: 18","Ticker: 19","Ticker: 20","Ticker: 21","Ticker: 22","Ticker: 23","Ticker: 24","Ticker: 26","Ticker: 27","Ticker: 28","Ticker: 29","Ticker: 30","Ticker: 31","Ticker: 32","Ticker: 33","Ticker: 34","Ticker: 35","Ticker: 36","Ticker: 37","Ticker: 38","Ticker: 40","Ticker: 41","Ticker: 43","Ticker: 44","Ticker: 45"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle-open","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[-6132,-5985.92405063291,-5839.84810126582,-5693.77215189873,-5547.69620253165,-5401.62025316456,-5255.54430379747,-5109.46835443038,-4963.39240506329,-4817.3164556962,-4671.24050632911,-4525.16455696203,-4379.08860759494,-4233.01265822785,-4086.93670886076,-3940.86075949367,-3794.78481012658,-3648.70886075949,-3502.6329113924,-3356.55696202532,-3210.48101265823,-3064.40506329114,-2918.32911392405,-2772.25316455696,-2626.17721518987,-2480.10126582278,-2334.0253164557,-2187.94936708861,-2041.87341772152,-1895.79746835443,-1749.72151898734,-1603.64556962025,-1457.56962025316,-1311.49367088608,-1165.41772151899,-1019.3417721519,-873.26582278481,-727.189873417721,-581.113924050633,-435.037974683544,-288.962025316456,-142.886075949367,3.18987341772208,149.265822784811,295.341772151899,441.417721518987,587.493670886076,733.569620253164,879.645569620254,1025.72151898734,1171.79746835443,1317.87341772152,1463.94936708861,1610.0253164557,1756.10126582278,1902.17721518987,2048.25316455696,2194.32911392405,2340.40506329114,2486.48101265823,2632.55696202532,2778.63291139241,2924.70886075949,3070.78481012658,3216.86075949367,3362.93670886076,3509.01265822785,3655.08860759494,3801.16455696203,3947.24050632911,4093.3164556962,4239.39240506329,4385.46835443038,4531.54430379747,4677.62025316456,4823.69620253165,4969.77215189873,5115.84810126582,5261.92405063291,5408],"y":[-3342.79213360898,-3259.27039769287,-3175.74866177675,-3092.22692586063,-3008.70518994451,-2925.1834540284,-2841.66171811228,-2758.13998219616,-2674.61824628005,-2591.09651036393,-2507.57477444781,-2424.0530385317,-2340.53130261558,-2257.00956669946,-2173.48783078335,-2089.96609486723,-2006.44435895111,-1922.922623035,-1839.40088711888,-1755.87915120276,-1672.35741528665,-1588.83567937053,-1505.31394345441,-1421.79220753829,-1338.27047162218,-1254.74873570606,-1171.22699978994,-1087.70526387383,-1004.18352795771,-920.661792041593,-837.140056125477,-753.61832020936,-670.096584293243,-586.574848377126,-503.05311246101,-419.531376544893,-336.009640628776,-252.487904712659,-168.966168796542,-85.4444328804253,-1.92269696430853,81.5990389518082,165.120774867926,248.642510784042,332.164246700159,415.685982616276,499.207718532393,582.729454448509,666.251190364627,749.772926280743,833.29466219686,916.816398112977,1000.33813402909,1083.85986994521,1167.38160586133,1250.90334177744,1334.42507769356,1417.94681360968,1501.4685495258,1584.99028544191,1668.51202135803,1752.03375727415,1835.55549319026,1919.07722910638,2002.5989650225,2086.12070093861,2169.64243685473,2253.16417277085,2336.68590868696,2420.20764460308,2503.7293805192,2587.25111643531,2670.77285235143,2754.29458826755,2837.81632418366,2921.33806009978,3004.8597960159,3088.38153193202,3171.90326784813,3255.42500376425],"text":"","type":"scatter","mode":"lines","name":"fitted values","line":{"width":3.77952755905512,"color":"rgba(51,102,255,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[-6132,-5985.92405063291,-5839.84810126582,-5693.77215189873,-5547.69620253165,-5401.62025316456,-5255.54430379747,-5109.46835443038,-4963.39240506329,-4817.3164556962,-4671.24050632911,-4525.16455696203,-4379.08860759494,-4233.01265822785,-4086.93670886076,-3940.86075949367,-3794.78481012658,-3648.70886075949,-3502.6329113924,-3356.55696202532,-3210.48101265823,-3064.40506329114,-2918.32911392405,-2772.25316455696,-2626.17721518987,-2480.10126582278,-2334.0253164557,-2187.94936708861,-2041.87341772152,-1895.79746835443,-1749.72151898734,-1603.64556962025,-1457.56962025316,-1311.49367088608,-1165.41772151899,-1019.3417721519,-873.26582278481,-727.189873417721,-581.113924050633,-435.037974683544,-288.962025316456,-142.886075949367,3.18987341772208,149.265822784811,295.341772151899,441.417721518987,587.493670886076,733.569620253164,879.645569620254,1025.72151898734,1171.79746835443,1317.87341772152,1463.94936708861,1610.0253164557,1756.10126582278,1902.17721518987,2048.25316455696,2194.32911392405,2340.40506329114,2486.48101265823,2632.55696202532,2778.63291139241,2924.70886075949,3070.78481012658,3216.86075949367,3362.93670886076,3509.01265822785,3655.08860759494,3801.16455696203,3947.24050632911,4093.3164556962,4239.39240506329,4385.46835443038,4531.54430379747,4677.62025316456,4823.69620253165,4969.77215189873,5115.84810126582,5261.92405063291,5408,5408,5408,5261.92405063291,5115.84810126582,4969.77215189873,4823.69620253165,4677.62025316456,4531.54430379747,4385.46835443038,4239.39240506329,4093.3164556962,3947.24050632911,3801.16455696203,3655.08860759494,3509.01265822785,3362.93670886076,3216.86075949367,3070.78481012658,2924.70886075949,2778.63291139241,2632.55696202532,2486.48101265823,2340.40506329114,2194.32911392405,2048.25316455696,1902.17721518987,1756.10126582278,1610.0253164557,1463.94936708861,1317.87341772152,1171.79746835443,1025.72151898734,879.645569620254,733.569620253164,587.493670886076,441.417721518987,295.341772151899,149.265822784811,3.18987341772208,-142.886075949367,-288.962025316456,-435.037974683544,-581.113924050633,-727.189873417721,-873.26582278481,-1019.3417721519,-1165.41772151899,-1311.49367088608,-1457.56962025316,-1603.64556962025,-1749.72151898734,-1895.79746835443,-2041.87341772152,-2187.94936708861,-2334.0253164557,-2480.10126582278,-2626.17721518987,-2772.25316455696,-2918.32911392405,-3064.40506329114,-3210.48101265823,-3356.55696202532,-3502.6329113924,-3648.70886075949,-3794.78481012658,-3940.86075949367,-4086.93670886076,-4233.01265822785,-4379.08860759494,-4525.16455696203,-4671.24050632911,-4817.3164556962,-4963.39240506329,-5109.46835443038,-5255.54430379747,-5401.62025316456,-5547.69620253165,-5693.77215189873,-5839.84810126582,-5985.92405063291,-6132,-6132],"y":[-4080.49677147917,-3981.59333319414,-3882.71035262024,-3783.84919288398,-3685.01133875426,-3586.19841024826,-3487.41217806406,-3388.65458112521,-3289.92774657278,-3191.23401260109,-3092.5759546052,-2993.95641519545,-2895.37853873835,-2796.84581120934,-2698.36210629425,-2599.93173885983,-2501.55952713484,-2403.25086521064,-2305.01180779257,-2206.84916952192,-2108.77064165368,-2010.7849294309,-1912.90191415283,-1815.13284469993,-1717.49056415488,-1619.98977813068,-1522.64737244278,-1425.48278875169,-1328.51846758478,-1231.78036841769,-1135.29857574686,-1039.10799748764,-943.249156302409,-847.769063686558,-752.722148146493,-658.171179181105,-564.188084346632,-470.854494890456,-378.261777893758,-286.510230623337,-195.707053427192,-105.962730475216,-17.3855993894703,69.9252628987673,155.888180565488,240.446811637682,323.576282417622,405.286070769854,485.618894736059,564.645897487313,642.459324513183,719.164294200763,794.871102595514,869.688988207163,943.721705754268,1017.06482057003,1089.80440023935,1162.01671293965,1233.76857609863,1305.11807554968,1376.11545721929,1446.80406290703,1517.22123383406,1587.39914151329,1657.36552855947,1727.14435594098,1796.75636090556,1866.21953363134,1935.54952211258,2004.75997489938,2073.86283071144,2142.86856302199,2211.7863866841,2280.6244326671,2349.38989604895,2418.08916159384,2486.72791053926,2555.31121161693,2623.84359882733,2692.3291380658,2692.3291380658,3818.5208694627,3719.96293686894,3621.4518522471,3522.99168149253,3424.58695860572,3326.24275231838,3227.964743868,3129.75931801876,3031.63366984864,2933.59593032696,2835.65531430678,2737.82229526135,2640.10881191035,2542.5285128039,2445.09704593625,2347.83240148553,2250.75531669947,2153.88975254647,2057.26345164126,1960.90858549677,1864.86249533415,1769.16852295296,1673.87691427971,1579.04575514778,1484.74186298486,1391.04150596839,1298.03075168326,1205.80516546267,1114.46850202519,1024.12999988054,934.899955074174,846.883485993194,760.172838127165,674.839154647163,590.92515359487,508.44031283483,427.359758669317,347.627149125321,269.160808378833,191.861659498575,115.621364862486,40.3294403006742,-34.1213145348617,-107.831196910919,-180.891573908681,-253.384076775527,-325.380633067694,-396.944012284077,-468.128642931079,-538.981536504095,-609.543215665492,-679.848588330645,-749.927738995966,-819.806627137108,-889.507693281439,-959.050379089474,-1028.45157037666,-1097.72597275599,-1166.88642931016,-1235.94418891961,-1304.90913288361,-1373.78996644519,-1442.59438085936,-1511.32919076738,-1580.00045087463,-1648.61355527244,-1717.17332218959,-1785.68406649281,-1854.14966186794,-1922.57359429042,-1990.95900812677,-2059.30874598731,-2127.62538326712,-2195.9112581605,-2264.16849780854,-2332.39904113477,-2400.60465883729,-2468.78697093326,-2536.94746219159,-2605.08749573879,-4080.49677147917],"text":"","type":"scatter","mode":"lines","line":{"width":3.77952755905512,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(153,153,153,0.4)","hoveron":"points","hoverinfo":"x+y","showlegend":false,"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":22.2785388127854,"r":7.30593607305936,"b":36.2328767123288,"l":54.7945205479452},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-6709,5985],"tickmode":"array","ticktext":["-6000","-3000","0","3000"],"tickvals":[-6000,-3000,0,3000],"categoryorder":"array","categoryarray":["-6000","-3000","0","3000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"2016 Net Income","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4475.44765352626,4213.47175150979],"tickmode":"array","ticktext":["-4000","-2000","0","2000","4000"],"tickvals":[-4000,-2000,0,2000,4000],"categoryorder":"array","categoryarray":["-4000","-2000","0","2000","4000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"2017 Net Income","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"3f6df468bdd":{"text":{},"x":{},"y":{},"type":"scatter"},"3f6d3d71f32b":{"x":{},"y":{},"x.1":{},"y.1":{}}},"cur_data":"3f6df468bdd","visdat":{"3f6df468bdd":["function (y) ","x"],"3f6d3d71f32b":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</section><section id="graphs-replacing-animation" class="slide level2 default" data-background="../Backgrounds/default.jpg">
+<h2>GRAPHS: replacing animation</h2>
+<div class="clearfix">
+<div class="left">
+<ul>
+<li>Ice cream revenue predicts pool drownings in the US
+<ul>
+<li>???</li>
+<li>Correlation is…<span class="fragment" data-fragment-index="1"> only 0.0502886</span></li>
+</ul></li>
+</ul>
+<span class="fragment fade-up" data-fragment-index="2">
+<ul>
+<li>
+What about units sold?
+</li>
+<ul>
+<li>
+Correlation is negative!!!
+</li>
+<li>
+-0.720783
+</li>
+</ul>
+</ul>
+</span> <span class="fragment fade-up" data-fragment-index="3">
+<ul>
+<li>
+What about price?
+</li>
+<ul>
+<li>
+Correlation is 0.7872958
+</li>
+</ul>
+</ul>
+<p></span></p>
+</div>
+<div class="right fragment current-visible" style="position:relative; vertical-align: top;" data-fragment-index="1">
+<div id="htmlwidget-44e2d06a03cebff82609" style="width:412.8px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-44e2d06a03cebff82609">{"x":{"data":[{"x":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009],"y":[0.867861142217245,0.921985815602837,1.00410600970511,0.80253826054498,0.989175065322882,0.95371407241508,1.11982082866741,1.08622620380739,1.12915266890631,1.12541993281075],"text":["year: 2000<br />value: 0.8678611<br />variable: drown","year: 2001<br />value: 0.9219858<br />variable: drown","year: 2002<br />value: 1.0041060<br />variable: drown","year: 2003<br />value: 0.8025383<br />variable: drown","year: 2004<br />value: 0.9891751<br />variable: drown","year: 2005<br />value: 0.9537141<br />variable: drown","year: 2006<br />value: 1.1198208<br />variable: drown","year: 2007<br />value: 1.0862262<br />variable: drown","year: 2008<br />value: 1.1291527<br />variable: drown","year: 2009<br />value: 1.1254199<br />variable: drown"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.66929133858268,"symbol":"circle-open","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"drown","legendgroup":"drown","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009],"y":[0.96984854192114,1.00408040474331,1.06289503640023,1.02243298180059,0.953728299996759,0.982654949515287,1.00496672028964,0.994579219358114,1.00314926951896,1.00166457645597],"text":["year: 2000<br />value: 0.9698485<br />variable: icecream2","year: 2001<br />value: 1.0040804<br />variable: icecream2","year: 2002<br />value: 1.0628950<br />variable: icecream2","year: 2003<br />value: 1.0224330<br />variable: icecream2","year: 2004<br />value: 0.9537283<br />variable: icecream2","year: 2005<br />value: 0.9826549<br />variable: icecream2","year: 2006<br />value: 1.0049667<br />variable: icecream2","year: 2007<br />value: 0.9945792<br />variable: icecream2","year: 2008<br />value: 1.0031493<br />variable: icecream2","year: 2009<br />value: 1.0016646<br />variable: icecream2"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":1,"size":5.66929133858268,"symbol":"circle-open","line":{"width":1.88976377952756,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"icecream2","legendgroup":"icecream2","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2000,2000.11392405063,2000.22784810127,2000.3417721519,2000.45569620253,2000.56962025316,2000.6835443038,2000.79746835443,2000.91139240506,2001.0253164557,2001.13924050633,2001.25316455696,2001.36708860759,2001.48101265823,2001.59493670886,2001.70886075949,2001.82278481013,2001.93670886076,2002.05063291139,2002.16455696203,2002.27848101266,2002.39240506329,2002.50632911392,2002.62025316456,2002.73417721519,2002.84810126582,2002.96202531646,2003.07594936709,2003.18987341772,2003.30379746835,2003.41772151899,2003.53164556962,2003.64556962025,2003.75949367089,2003.87341772152,2003.98734177215,2004.10126582278,2004.21518987342,2004.32911392405,2004.44303797468,2004.55696202532,2004.67088607595,2004.78481012658,2004.89873417722,2005.01265822785,2005.12658227848,2005.24050632911,2005.35443037975,2005.46835443038,2005.58227848101,2005.69620253165,2005.81012658228,2005.92405063291,2006.03797468354,2006.15189873418,2006.26582278481,2006.37974683544,2006.49367088608,2006.60759493671,2006.72151898734,2006.83544303797,2006.94936708861,2007.06329113924,2007.17721518987,2007.29113924051,2007.40506329114,2007.51898734177,2007.63291139241,2007.74683544304,2007.86075949367,2007.9746835443,2008.08860759494,2008.20253164557,2008.3164556962,2008.43037974684,2008.54430379747,2008.6582278481,2008.77215189873,2008.88607594937,2009],"y":[0.883275231827233,0.887519428118546,0.891457225052372,0.895104154668778,0.898475749007833,0.901587540109606,0.90445506001416,0.907093840761575,0.909519414391915,0.911737773117864,0.91352543525972,0.914856720004298,0.915831291921749,0.916548815582222,0.917108955555867,0.917611376412833,0.91815574272327,0.918841719057325,0.919561445754889,0.918950555365545,0.917071885178309,0.914328116365768,0.911121930100514,0.907856007555136,0.904933029902224,0.902755678314368,0.901726633964157,0.901704725945709,0.901278649311804,0.900616612462088,0.900020928141232,0.89979390909391,0.900237868064794,0.901655117798558,0.904347971039874,0.908618740533415,0.915534012417874,0.925843208764645,0.9386669763739,0.953111559227195,0.968283201306053,0.983288146592091,0.997232639066835,1.00922292271184,1.01838236036773,1.02569107128981,1.03225122632255,1.03820593073366,1.04369828979086,1.04887140876185,1.05386839291435,1.05883234751607,1.06390637783474,1.06921623388607,1.07461635254925,1.07998338648227,1.08524764682293,1.09033944470906,1.09518909127846,1.09972689766897,1.1038831750184,1.10758823446456,1.11082335634871,1.1137896800799,1.11650801741018,1.11896853019543,1.12116138029152,1.12307672955431,1.12470473983967,1.12603557300347,1.12705939090158,1.12777961995775,1.12822219372152,1.12839015231027,1.12828555090692,1.12791044469445,1.1272668888558,1.12635693857392,1.12518264903176,1.12374607541227],"text":["year: 2000.000<br />value: 0.8832752<br />variable: drown","year: 2000.114<br />value: 0.8875194<br />variable: drown","year: 2000.228<br />value: 0.8914572<br />variable: drown","year: 2000.342<br />value: 0.8951042<br />variable: drown","year: 2000.456<br />value: 0.8984757<br />variable: drown","year: 2000.570<br />value: 0.9015875<br />variable: drown","year: 2000.684<br />value: 0.9044551<br />variable: drown","year: 2000.797<br />value: 0.9070938<br />variable: drown","year: 2000.911<br />value: 0.9095194<br />variable: drown","year: 2001.025<br />value: 0.9117378<br />variable: drown","year: 2001.139<br />value: 0.9135254<br />variable: drown","year: 2001.253<br />value: 0.9148567<br />variable: drown","year: 2001.367<br />value: 0.9158313<br />variable: drown","year: 2001.481<br />value: 0.9165488<br />variable: drown","year: 2001.595<br />value: 0.9171090<br />variable: drown","year: 2001.709<br />value: 0.9176114<br />variable: drown","year: 2001.823<br />value: 0.9181557<br />variable: drown","year: 2001.937<br />value: 0.9188417<br />variable: drown","year: 2002.051<br />value: 0.9195614<br />variable: drown","year: 2002.165<br />value: 0.9189506<br />variable: drown","year: 2002.278<br />value: 0.9170719<br />variable: drown","year: 2002.392<br />value: 0.9143281<br />variable: drown","year: 2002.506<br />value: 0.9111219<br />variable: drown","year: 2002.620<br />value: 0.9078560<br />variable: drown","year: 2002.734<br />value: 0.9049330<br />variable: drown","year: 2002.848<br />value: 0.9027557<br />variable: drown","year: 2002.962<br />value: 0.9017266<br />variable: drown","year: 2003.076<br />value: 0.9017047<br />variable: drown","year: 2003.190<br />value: 0.9012786<br />variable: drown","year: 2003.304<br />value: 0.9006166<br />variable: drown","year: 2003.418<br />value: 0.9000209<br />variable: drown","year: 2003.532<br />value: 0.8997939<br />variable: drown","year: 2003.646<br />value: 0.9002379<br />variable: drown","year: 2003.759<br />value: 0.9016551<br />variable: drown","year: 2003.873<br />value: 0.9043480<br />variable: drown","year: 2003.987<br />value: 0.9086187<br />variable: drown","year: 2004.101<br />value: 0.9155340<br />variable: drown","year: 2004.215<br />value: 0.9258432<br />variable: drown","year: 2004.329<br />value: 0.9386670<br />variable: drown","year: 2004.443<br />value: 0.9531116<br />variable: drown","year: 2004.557<br />value: 0.9682832<br />variable: drown","year: 2004.671<br />value: 0.9832881<br />variable: drown","year: 2004.785<br />value: 0.9972326<br />variable: drown","year: 2004.899<br />value: 1.0092229<br />variable: drown","year: 2005.013<br />value: 1.0183824<br />variable: drown","year: 2005.127<br />value: 1.0256911<br />variable: drown","year: 2005.241<br />value: 1.0322512<br />variable: drown","year: 2005.354<br />value: 1.0382059<br />variable: drown","year: 2005.468<br />value: 1.0436983<br />variable: drown","year: 2005.582<br />value: 1.0488714<br />variable: drown","year: 2005.696<br />value: 1.0538684<br />variable: drown","year: 2005.810<br />value: 1.0588323<br />variable: drown","year: 2005.924<br />value: 1.0639064<br />variable: drown","year: 2006.038<br />value: 1.0692162<br />variable: drown","year: 2006.152<br />value: 1.0746164<br />variable: drown","year: 2006.266<br />value: 1.0799834<br />variable: drown","year: 2006.380<br />value: 1.0852476<br />variable: drown","year: 2006.494<br />value: 1.0903394<br />variable: drown","year: 2006.608<br />value: 1.0951891<br />variable: drown","year: 2006.722<br />value: 1.0997269<br />variable: drown","year: 2006.835<br />value: 1.1038832<br />variable: drown","year: 2006.949<br />value: 1.1075882<br />variable: drown","year: 2007.063<br />value: 1.1108234<br />variable: drown","year: 2007.177<br />value: 1.1137897<br />variable: drown","year: 2007.291<br />value: 1.1165080<br />variable: drown","year: 2007.405<br />value: 1.1189685<br />variable: drown","year: 2007.519<br />value: 1.1211614<br />variable: drown","year: 2007.633<br />value: 1.1230767<br />variable: drown","year: 2007.747<br />value: 1.1247047<br />variable: drown","year: 2007.861<br />value: 1.1260356<br />variable: drown","year: 2007.975<br />value: 1.1270594<br />variable: drown","year: 2008.089<br />value: 1.1277796<br />variable: drown","year: 2008.203<br />value: 1.1282222<br />variable: drown","year: 2008.316<br />value: 1.1283902<br />variable: drown","year: 2008.430<br />value: 1.1282856<br />variable: drown","year: 2008.544<br />value: 1.1279104<br />variable: drown","year: 2008.658<br />value: 1.1272669<br />variable: drown","year: 2008.772<br />value: 1.1263569<br />variable: drown","year: 2008.886<br />value: 1.1251826<br />variable: drown","year: 2009.000<br />value: 1.1237461<br />variable: drown"],"type":"scatter","mode":"lines","name":"drown","line":{"width":3.77952755905512,"color":"rgba(248,118,109,1)","dash":"solid"},"hoveron":"points","legendgroup":"drown","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2000,2000.11392405063,2000.22784810127,2000.3417721519,2000.45569620253,2000.56962025316,2000.6835443038,2000.79746835443,2000.91139240506,2001.0253164557,2001.13924050633,2001.25316455696,2001.36708860759,2001.48101265823,2001.59493670886,2001.70886075949,2001.82278481013,2001.93670886076,2002.05063291139,2002.16455696203,2002.27848101266,2002.39240506329,2002.50632911392,2002.62025316456,2002.73417721519,2002.84810126582,2002.96202531646,2003.07594936709,2003.18987341772,2003.30379746835,2003.41772151899,2003.53164556962,2003.64556962025,2003.75949367089,2003.87341772152,2003.98734177215,2004.10126582278,2004.21518987342,2004.32911392405,2004.44303797468,2004.55696202532,2004.67088607595,2004.78481012658,2004.89873417722,2005.01265822785,2005.12658227848,2005.24050632911,2005.35443037975,2005.46835443038,2005.58227848101,2005.69620253165,2005.81012658228,2005.92405063291,2006.03797468354,2006.15189873418,2006.26582278481,2006.37974683544,2006.49367088608,2006.60759493671,2006.72151898734,2006.83544303797,2006.94936708861,2007.06329113924,2007.17721518987,2007.29113924051,2007.40506329114,2007.51898734177,2007.63291139241,2007.74683544304,2007.86075949367,2007.9746835443,2008.08860759494,2008.20253164557,2008.3164556962,2008.43037974684,2008.54430379747,2008.6582278481,2008.77215189873,2008.88607594937,2009],"y":[0.966804353959795,0.974370581474739,0.981504041288968,0.988205639046133,0.994476280389886,1.00031687096388,1.00572831641175,1.01071152237717,1.01526739450379,1.01939294620767,1.02299336102659,1.02605921241047,1.02863294131366,1.0307569886905,1.03247379549536,1.03382580268259,1.03485545120653,1.03560518202154,1.03604416966741,1.03569305789908,1.03456786279164,1.03280385434984,1.03053630257844,1.0279004774822,1.02503164906588,1.02206508733423,1.01913606229202,1.01591932843861,1.01120507718164,1.00533483485578,0.998771320543807,0.991977253328542,0.985415352292793,0.979548336519367,0.974838925091073,0.971749837090718,0.970262211932682,0.969722934882043,0.969939516180492,0.970725655320789,0.971895051795687,0.973261405097949,0.974638414720331,0.975839780155589,0.976689756401252,0.978011194715334,0.980231177022747,0.983091804336781,0.986335177670726,0.989703398037869,0.992938566451502,0.995782783924908,0.997978151471389,0.99931148668343,1.00019831894562,1.00084746821826,1.00131191635525,1.0016446452105,1.00189863663792,1.00212687249141,1.00238233462487,1.00271800489222,1.00314246355869,1.00347767726508,1.00370957607152,1.00385119182846,1.00391555638635,1.00391570159561,1.00386465930669,1.00377546137004,1.00366113963608,1.00351877197746,1.00331963320772,1.00306365214121,1.00275196202693,1.00238569611389,1.00196598765108,1.00149396988751,1.00097077607219,1.00039753945411],"text":["year: 2000.000<br />value: 0.9668044<br />variable: icecream2","year: 2000.114<br />value: 0.9743706<br />variable: icecream2","year: 2000.228<br />value: 0.9815040<br />variable: icecream2","year: 2000.342<br />value: 0.9882056<br />variable: icecream2","year: 2000.456<br />value: 0.9944763<br />variable: icecream2","year: 2000.570<br />value: 1.0003169<br />variable: icecream2","year: 2000.684<br />value: 1.0057283<br />variable: icecream2","year: 2000.797<br />value: 1.0107115<br />variable: icecream2","year: 2000.911<br />value: 1.0152674<br />variable: icecream2","year: 2001.025<br />value: 1.0193929<br />variable: icecream2","year: 2001.139<br />value: 1.0229934<br />variable: icecream2","year: 2001.253<br />value: 1.0260592<br />variable: icecream2","year: 2001.367<br />value: 1.0286329<br />variable: icecream2","year: 2001.481<br />value: 1.0307570<br />variable: icecream2","year: 2001.595<br />value: 1.0324738<br />variable: icecream2","year: 2001.709<br />value: 1.0338258<br />variable: icecream2","year: 2001.823<br />value: 1.0348555<br />variable: icecream2","year: 2001.937<br />value: 1.0356052<br />variable: icecream2","year: 2002.051<br />value: 1.0360442<br />variable: icecream2","year: 2002.165<br />value: 1.0356931<br />variable: icecream2","year: 2002.278<br />value: 1.0345679<br />variable: icecream2","year: 2002.392<br />value: 1.0328039<br />variable: icecream2","year: 2002.506<br />value: 1.0305363<br />variable: icecream2","year: 2002.620<br />value: 1.0279005<br />variable: icecream2","year: 2002.734<br />value: 1.0250316<br />variable: icecream2","year: 2002.848<br />value: 1.0220651<br />variable: icecream2","year: 2002.962<br />value: 1.0191361<br />variable: icecream2","year: 2003.076<br />value: 1.0159193<br />variable: icecream2","year: 2003.190<br />value: 1.0112051<br />variable: icecream2","year: 2003.304<br />value: 1.0053348<br />variable: icecream2","year: 2003.418<br />value: 0.9987713<br />variable: icecream2","year: 2003.532<br />value: 0.9919773<br />variable: icecream2","year: 2003.646<br />value: 0.9854154<br />variable: icecream2","year: 2003.759<br />value: 0.9795483<br />variable: icecream2","year: 2003.873<br />value: 0.9748389<br />variable: icecream2","year: 2003.987<br />value: 0.9717498<br />variable: icecream2","year: 2004.101<br />value: 0.9702622<br />variable: icecream2","year: 2004.215<br />value: 0.9697229<br />variable: icecream2","year: 2004.329<br />value: 0.9699395<br />variable: icecream2","year: 2004.443<br />value: 0.9707257<br />variable: icecream2","year: 2004.557<br />value: 0.9718951<br />variable: icecream2","year: 2004.671<br />value: 0.9732614<br />variable: icecream2","year: 2004.785<br />value: 0.9746384<br />variable: icecream2","year: 2004.899<br />value: 0.9758398<br />variable: icecream2","year: 2005.013<br />value: 0.9766898<br />variable: icecream2","year: 2005.127<br />value: 0.9780112<br />variable: icecream2","year: 2005.241<br />value: 0.9802312<br />variable: icecream2","year: 2005.354<br />value: 0.9830918<br />variable: icecream2","year: 2005.468<br />value: 0.9863352<br />variable: icecream2","year: 2005.582<br />value: 0.9897034<br />variable: icecream2","year: 2005.696<br />value: 0.9929386<br />variable: icecream2","year: 2005.810<br />value: 0.9957828<br />variable: icecream2","year: 2005.924<br />value: 0.9979782<br />variable: icecream2","year: 2006.038<br />value: 0.9993115<br />variable: icecream2","year: 2006.152<br />value: 1.0001983<br />variable: icecream2","year: 2006.266<br />value: 1.0008475<br />variable: icecream2","year: 2006.380<br />value: 1.0013119<br />variable: icecream2","year: 2006.494<br />value: 1.0016446<br />variable: icecream2","year: 2006.608<br />value: 1.0018986<br />variable: icecream2","year: 2006.722<br />value: 1.0021269<br />variable: icecream2","year: 2006.835<br />value: 1.0023823<br />variable: icecream2","year: 2006.949<br />value: 1.0027180<br />variable: icecream2","year: 2007.063<br />value: 1.0031425<br />variable: icecream2","year: 2007.177<br />value: 1.0034777<br />variable: icecream2","year: 2007.291<br />value: 1.0037096<br />variable: icecream2","year: 2007.405<br />value: 1.0038512<br />variable: icecream2","year: 2007.519<br />value: 1.0039156<br />variable: icecream2","year: 2007.633<br />value: 1.0039157<br />variable: icecream2","year: 2007.747<br />value: 1.0038647<br />variable: icecream2","year: 2007.861<br />value: 1.0037755<br />variable: icecream2","year: 2007.975<br />value: 1.0036611<br />variable: icecream2","year: 2008.089<br />value: 1.0035188<br />variable: icecream2","year: 2008.203<br />value: 1.0033196<br />variable: icecream2","year: 2008.316<br />value: 1.0030637<br />variable: icecream2","year: 2008.430<br />value: 1.0027520<br />variable: icecream2","year: 2008.544<br />value: 1.0023857<br />variable: icecream2","year: 2008.658<br />value: 1.0019660<br />variable: icecream2","year: 2008.772<br />value: 1.0014940<br />variable: icecream2","year: 2008.886<br />value: 1.0009708<br />variable: icecream2","year: 2009.000<br />value: 1.0003975<br />variable: icecream2"],"type":"scatter","mode":"lines","name":"icecream2","line":{"width":3.77952755905512,"color":"rgba(0,191,196,1)","dash":"solid"},"hoveron":"points","legendgroup":"icecream2","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.8481735159817,"r":7.30593607305936,"b":37.8025114155251,"l":43.1050228310502},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1999.55,2009.45],"tickmode":"array","ticktext":["2000","2003","2006","2009"],"tickvals":[2000,2003,2006,2009],"categoryorder":"array","categoryarray":["2000","2003","2006","2009"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Year","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.786207540126913,1.14548338932437],"tickmode":"array","ticktext":["0.8","0.9","1.0","1.1"],"tickvals":[0.8,0.9,1,1.1],"categoryorder":"array","categoryarray":["0.8","0.9","1.0","1.1"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"% of average year","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.959399606299213},"annotations":[{"text":"Statistic","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"3f6d4e0d5cd8":{"x":{},"y":{},"colour":{},"type":"scatter"},"3f6d685dc2f3":{"x":{},"y":{},"colour":{}}},"cur_data":"3f6d4e0d5cd8","visdat":{"3f6d4e0d5cd8":["function (y) ","x"],"3f6d685dc2f3":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="right fragment current-visible" style="position:relative; vertical-align: top;" data-fragment-index="2">
+<div id="htmlwidget-02476d5db3cbb0953717" style="width:412.8px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-02476d5db3cbb0953717">{"x":{"data":[{"x":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009],"y":[0.867861142217245,0.921985815602837,1.00410600970511,0.80253826054498,0.989175065322882,0.95371407241508,1.11982082866741,1.08622620380739,1.12915266890631,1.12541993281075],"text":["year: 2000<br />value: 0.8678611<br />variable: drown","year: 2001<br />value: 0.9219858<br />variable: drown","year: 2002<br />value: 1.0041060<br />variable: drown","year: 2003<br />value: 0.8025383<br />variable: drown","year: 2004<br />value: 0.9891751<br />variable: drown","year: 2005<br />value: 0.9537141<br />variable: drown","year: 2006<br />value: 1.1198208<br />variable: drown","year: 2007<br />value: 1.0862262<br />variable: drown","year: 2008<br />value: 1.1291527<br />variable: drown","year: 2009<br />value: 1.1254199<br />variable: drown"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.66929133858268,"symbol":"circle-open","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"drown","legendgroup":"drown","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009],"y":[1.05990783410138,1.04015799868334,1.06649111257406,1.04674127715602,0.961158657011192,0.994075049374589,1.00724160631995,0.97432521395655,0.934825543120474,0.915075707702436],"text":["year: 2000<br />value: 1.0599078<br />variable: icecream","year: 2001<br />value: 1.0401580<br />variable: icecream","year: 2002<br />value: 1.0664911<br />variable: icecream","year: 2003<br />value: 1.0467413<br />variable: icecream","year: 2004<br />value: 0.9611587<br />variable: icecream","year: 2005<br />value: 0.9940750<br />variable: icecream","year: 2006<br />value: 1.0072416<br />variable: icecream","year: 2007<br />value: 0.9743252<br />variable: icecream","year: 2008<br />value: 0.9348255<br />variable: icecream","year: 2009<br />value: 0.9150757<br />variable: icecream"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":1,"size":5.66929133858268,"symbol":"circle-open","line":{"width":1.88976377952756,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"icecream","legendgroup":"icecream","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2000,2000.11392405063,2000.22784810127,2000.3417721519,2000.45569620253,2000.56962025316,2000.6835443038,2000.79746835443,2000.91139240506,2001.0253164557,2001.13924050633,2001.25316455696,2001.36708860759,2001.48101265823,2001.59493670886,2001.70886075949,2001.82278481013,2001.93670886076,2002.05063291139,2002.16455696203,2002.27848101266,2002.39240506329,2002.50632911392,2002.62025316456,2002.73417721519,2002.84810126582,2002.96202531646,2003.07594936709,2003.18987341772,2003.30379746835,2003.41772151899,2003.53164556962,2003.64556962025,2003.75949367089,2003.87341772152,2003.98734177215,2004.10126582278,2004.21518987342,2004.32911392405,2004.44303797468,2004.55696202532,2004.67088607595,2004.78481012658,2004.89873417722,2005.01265822785,2005.12658227848,2005.24050632911,2005.35443037975,2005.46835443038,2005.58227848101,2005.69620253165,2005.81012658228,2005.92405063291,2006.03797468354,2006.15189873418,2006.26582278481,2006.37974683544,2006.49367088608,2006.60759493671,2006.72151898734,2006.83544303797,2006.94936708861,2007.06329113924,2007.17721518987,2007.29113924051,2007.40506329114,2007.51898734177,2007.63291139241,2007.74683544304,2007.86075949367,2007.9746835443,2008.08860759494,2008.20253164557,2008.3164556962,2008.43037974684,2008.54430379747,2008.6582278481,2008.77215189873,2008.88607594937,2009],"y":[0.883275231827233,0.887519428118546,0.891457225052372,0.895104154668778,0.898475749007833,0.901587540109606,0.90445506001416,0.907093840761575,0.909519414391915,0.911737773117864,0.91352543525972,0.914856720004298,0.915831291921749,0.916548815582222,0.917108955555867,0.917611376412833,0.91815574272327,0.918841719057325,0.919561445754889,0.918950555365545,0.917071885178309,0.914328116365768,0.911121930100514,0.907856007555136,0.904933029902224,0.902755678314368,0.901726633964157,0.901704725945709,0.901278649311804,0.900616612462088,0.900020928141232,0.89979390909391,0.900237868064794,0.901655117798558,0.904347971039874,0.908618740533415,0.915534012417874,0.925843208764645,0.9386669763739,0.953111559227195,0.968283201306053,0.983288146592091,0.997232639066835,1.00922292271184,1.01838236036773,1.02569107128981,1.03225122632255,1.03820593073366,1.04369828979086,1.04887140876185,1.05386839291435,1.05883234751607,1.06390637783474,1.06921623388607,1.07461635254925,1.07998338648227,1.08524764682293,1.09033944470906,1.09518909127846,1.09972689766897,1.1038831750184,1.10758823446456,1.11082335634871,1.1137896800799,1.11650801741018,1.11896853019543,1.12116138029152,1.12307672955431,1.12470473983967,1.12603557300347,1.12705939090158,1.12777961995775,1.12822219372152,1.12839015231027,1.12828555090692,1.12791044469445,1.1272668888558,1.12635693857392,1.12518264903176,1.12374607541227],"text":["year: 2000.000<br />value: 0.8832752<br />variable: drown","year: 2000.114<br />value: 0.8875194<br />variable: drown","year: 2000.228<br />value: 0.8914572<br />variable: drown","year: 2000.342<br />value: 0.8951042<br />variable: drown","year: 2000.456<br />value: 0.8984757<br />variable: drown","year: 2000.570<br />value: 0.9015875<br />variable: drown","year: 2000.684<br />value: 0.9044551<br />variable: drown","year: 2000.797<br />value: 0.9070938<br />variable: drown","year: 2000.911<br />value: 0.9095194<br />variable: drown","year: 2001.025<br />value: 0.9117378<br />variable: drown","year: 2001.139<br />value: 0.9135254<br />variable: drown","year: 2001.253<br />value: 0.9148567<br />variable: drown","year: 2001.367<br />value: 0.9158313<br />variable: drown","year: 2001.481<br />value: 0.9165488<br />variable: drown","year: 2001.595<br />value: 0.9171090<br />variable: drown","year: 2001.709<br />value: 0.9176114<br />variable: drown","year: 2001.823<br />value: 0.9181557<br />variable: drown","year: 2001.937<br />value: 0.9188417<br />variable: drown","year: 2002.051<br />value: 0.9195614<br />variable: drown","year: 2002.165<br />value: 0.9189506<br />variable: drown","year: 2002.278<br />value: 0.9170719<br />variable: drown","year: 2002.392<br />value: 0.9143281<br />variable: drown","year: 2002.506<br />value: 0.9111219<br />variable: drown","year: 2002.620<br />value: 0.9078560<br />variable: drown","year: 2002.734<br />value: 0.9049330<br />variable: drown","year: 2002.848<br />value: 0.9027557<br />variable: drown","year: 2002.962<br />value: 0.9017266<br />variable: drown","year: 2003.076<br />value: 0.9017047<br />variable: drown","year: 2003.190<br />value: 0.9012786<br />variable: drown","year: 2003.304<br />value: 0.9006166<br />variable: drown","year: 2003.418<br />value: 0.9000209<br />variable: drown","year: 2003.532<br />value: 0.8997939<br />variable: drown","year: 2003.646<br />value: 0.9002379<br />variable: drown","year: 2003.759<br />value: 0.9016551<br />variable: drown","year: 2003.873<br />value: 0.9043480<br />variable: drown","year: 2003.987<br />value: 0.9086187<br />variable: drown","year: 2004.101<br />value: 0.9155340<br />variable: drown","year: 2004.215<br />value: 0.9258432<br />variable: drown","year: 2004.329<br />value: 0.9386670<br />variable: drown","year: 2004.443<br />value: 0.9531116<br />variable: drown","year: 2004.557<br />value: 0.9682832<br />variable: drown","year: 2004.671<br />value: 0.9832881<br />variable: drown","year: 2004.785<br />value: 0.9972326<br />variable: drown","year: 2004.899<br />value: 1.0092229<br />variable: drown","year: 2005.013<br />value: 1.0183824<br />variable: drown","year: 2005.127<br />value: 1.0256911<br />variable: drown","year: 2005.241<br />value: 1.0322512<br />variable: drown","year: 2005.354<br />value: 1.0382059<br />variable: drown","year: 2005.468<br />value: 1.0436983<br />variable: drown","year: 2005.582<br />value: 1.0488714<br />variable: drown","year: 2005.696<br />value: 1.0538684<br />variable: drown","year: 2005.810<br />value: 1.0588323<br />variable: drown","year: 2005.924<br />value: 1.0639064<br />variable: drown","year: 2006.038<br />value: 1.0692162<br />variable: drown","year: 2006.152<br />value: 1.0746164<br />variable: drown","year: 2006.266<br />value: 1.0799834<br />variable: drown","year: 2006.380<br />value: 1.0852476<br />variable: drown","year: 2006.494<br />value: 1.0903394<br />variable: drown","year: 2006.608<br />value: 1.0951891<br />variable: drown","year: 2006.722<br />value: 1.0997269<br />variable: drown","year: 2006.835<br />value: 1.1038832<br />variable: drown","year: 2006.949<br />value: 1.1075882<br />variable: drown","year: 2007.063<br />value: 1.1108234<br />variable: drown","year: 2007.177<br />value: 1.1137897<br />variable: drown","year: 2007.291<br />value: 1.1165080<br />variable: drown","year: 2007.405<br />value: 1.1189685<br />variable: drown","year: 2007.519<br />value: 1.1211614<br />variable: drown","year: 2007.633<br />value: 1.1230767<br />variable: drown","year: 2007.747<br />value: 1.1247047<br />variable: drown","year: 2007.861<br />value: 1.1260356<br />variable: drown","year: 2007.975<br />value: 1.1270594<br />variable: drown","year: 2008.089<br />value: 1.1277796<br />variable: drown","year: 2008.203<br />value: 1.1282222<br />variable: drown","year: 2008.316<br />value: 1.1283902<br />variable: drown","year: 2008.430<br />value: 1.1282856<br />variable: drown","year: 2008.544<br />value: 1.1279104<br />variable: drown","year: 2008.658<br />value: 1.1272669<br />variable: drown","year: 2008.772<br />value: 1.1263569<br />variable: drown","year: 2008.886<br />value: 1.1251826<br />variable: drown","year: 2009.000<br />value: 1.1237461<br />variable: drown"],"type":"scatter","mode":"lines","name":"drown","line":{"width":3.77952755905512,"color":"rgba(248,118,109,1)","dash":"solid"},"hoveron":"points","legendgroup":"drown","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2000,2000.11392405063,2000.22784810127,2000.3417721519,2000.45569620253,2000.56962025316,2000.6835443038,2000.79746835443,2000.91139240506,2001.0253164557,2001.13924050633,2001.25316455696,2001.36708860759,2001.48101265823,2001.59493670886,2001.70886075949,2001.82278481013,2001.93670886076,2002.05063291139,2002.16455696203,2002.27848101266,2002.39240506329,2002.50632911392,2002.62025316456,2002.73417721519,2002.84810126582,2002.96202531646,2003.07594936709,2003.18987341772,2003.30379746835,2003.41772151899,2003.53164556962,2003.64556962025,2003.75949367089,2003.87341772152,2003.98734177215,2004.10126582278,2004.21518987342,2004.32911392405,2004.44303797468,2004.55696202532,2004.67088607595,2004.78481012658,2004.89873417722,2005.01265822785,2005.12658227848,2005.24050632911,2005.35443037975,2005.46835443038,2005.58227848101,2005.69620253165,2005.81012658228,2005.92405063291,2006.03797468354,2006.15189873418,2006.26582278481,2006.37974683544,2006.49367088608,2006.60759493671,2006.72151898734,2006.83544303797,2006.94936708861,2007.06329113924,2007.17721518987,2007.29113924051,2007.40506329114,2007.51898734177,2007.63291139241,2007.74683544304,2007.86075949367,2007.9746835443,2008.08860759494,2008.20253164557,2008.3164556962,2008.43037974684,2008.54430379747,2008.6582278481,2008.77215189873,2008.88607594937,2009],"y":[1.05263887186598,1.0542045770983,1.05559424407011,1.05680525581613,1.05783499537107,1.05868084576964,1.05934019004653,1.05981041123648,1.06008889237418,1.06017162855366,1.06002295760034,1.05964050976491,1.05904085172468,1.05824055015698,1.05725617173915,1.0561042831485,1.05480145106238,1.0533642421581,1.05179516146392,1.05000428287294,1.04798578830048,1.04575580856796,1.04333047449682,1.04072591690847,1.03795826662435,1.03504365446589,1.03199821125451,1.02853386852199,1.02384642450342,1.01823278822043,1.01207265112123,1.00574570465407,0.999631640267199,0.994110149408846,0.98956092352725,0.98636365407065,0.984527823559253,0.983540890905702,0.983221052680106,0.983391144172511,0.983874000672962,0.984492457471506,0.985069349858189,0.985427513123056,0.985403107170018,0.986068744022233,0.987919794631323,0.990571519741992,0.993639180098947,0.996738036446893,0.999483349530536,1.00149038009458,1.00237438888373,1.00180529878938,1.00026671559491,0.998085477168996,0.99540920707659,0.992385528882642,0.989162066152104,0.985886442449928,0.982706281341066,0.979769206390469,0.977106736163409,0.974255624955121,0.97117187839861,0.96788181576985,0.964411756344815,0.960788019399474,0.9570369242098,0.953184790051763,0.949257936201335,0.945249329974293,0.941099076240508,0.936808134026763,0.932379997104612,0.927818159245582,0.923126114221224,0.918307355803083,0.913365377762704,0.90830367387163],"text":["year: 2000.000<br />value: 1.0526389<br />variable: icecream","year: 2000.114<br />value: 1.0542046<br />variable: icecream","year: 2000.228<br />value: 1.0555942<br />variable: icecream","year: 2000.342<br />value: 1.0568053<br />variable: icecream","year: 2000.456<br />value: 1.0578350<br />variable: icecream","year: 2000.570<br />value: 1.0586808<br />variable: icecream","year: 2000.684<br />value: 1.0593402<br />variable: icecream","year: 2000.797<br />value: 1.0598104<br />variable: icecream","year: 2000.911<br />value: 1.0600889<br />variable: icecream","year: 2001.025<br />value: 1.0601716<br />variable: icecream","year: 2001.139<br />value: 1.0600230<br />variable: icecream","year: 2001.253<br />value: 1.0596405<br />variable: icecream","year: 2001.367<br />value: 1.0590409<br />variable: icecream","year: 2001.481<br />value: 1.0582406<br />variable: icecream","year: 2001.595<br />value: 1.0572562<br />variable: icecream","year: 2001.709<br />value: 1.0561043<br />variable: icecream","year: 2001.823<br />value: 1.0548015<br />variable: icecream","year: 2001.937<br />value: 1.0533642<br />variable: icecream","year: 2002.051<br />value: 1.0517952<br />variable: icecream","year: 2002.165<br />value: 1.0500043<br />variable: icecream","year: 2002.278<br />value: 1.0479858<br />variable: icecream","year: 2002.392<br />value: 1.0457558<br />variable: icecream","year: 2002.506<br />value: 1.0433305<br />variable: icecream","year: 2002.620<br />value: 1.0407259<br />variable: icecream","year: 2002.734<br />value: 1.0379583<br />variable: icecream","year: 2002.848<br />value: 1.0350437<br />variable: icecream","year: 2002.962<br />value: 1.0319982<br />variable: icecream","year: 2003.076<br />value: 1.0285339<br />variable: icecream","year: 2003.190<br />value: 1.0238464<br />variable: icecream","year: 2003.304<br />value: 1.0182328<br />variable: icecream","year: 2003.418<br />value: 1.0120727<br />variable: icecream","year: 2003.532<br />value: 1.0057457<br />variable: icecream","year: 2003.646<br />value: 0.9996316<br />variable: icecream","year: 2003.759<br />value: 0.9941101<br />variable: icecream","year: 2003.873<br />value: 0.9895609<br />variable: icecream","year: 2003.987<br />value: 0.9863637<br />variable: icecream","year: 2004.101<br />value: 0.9845278<br />variable: icecream","year: 2004.215<br />value: 0.9835409<br />variable: icecream","year: 2004.329<br />value: 0.9832211<br />variable: icecream","year: 2004.443<br />value: 0.9833911<br />variable: icecream","year: 2004.557<br />value: 0.9838740<br />variable: icecream","year: 2004.671<br />value: 0.9844925<br />variable: icecream","year: 2004.785<br />value: 0.9850693<br />variable: icecream","year: 2004.899<br />value: 0.9854275<br />variable: icecream","year: 2005.013<br />value: 0.9854031<br />variable: icecream","year: 2005.127<br />value: 0.9860687<br />variable: icecream","year: 2005.241<br />value: 0.9879198<br />variable: icecream","year: 2005.354<br />value: 0.9905715<br />variable: icecream","year: 2005.468<br />value: 0.9936392<br />variable: icecream","year: 2005.582<br />value: 0.9967380<br />variable: icecream","year: 2005.696<br />value: 0.9994833<br />variable: icecream","year: 2005.810<br />value: 1.0014904<br />variable: icecream","year: 2005.924<br />value: 1.0023744<br />variable: icecream","year: 2006.038<br />value: 1.0018053<br />variable: icecream","year: 2006.152<br />value: 1.0002667<br />variable: icecream","year: 2006.266<br />value: 0.9980855<br />variable: icecream","year: 2006.380<br />value: 0.9954092<br />variable: icecream","year: 2006.494<br />value: 0.9923855<br />variable: icecream","year: 2006.608<br />value: 0.9891621<br />variable: icecream","year: 2006.722<br />value: 0.9858864<br />variable: icecream","year: 2006.835<br />value: 0.9827063<br />variable: icecream","year: 2006.949<br />value: 0.9797692<br />variable: icecream","year: 2007.063<br />value: 0.9771067<br />variable: icecream","year: 2007.177<br />value: 0.9742556<br />variable: icecream","year: 2007.291<br />value: 0.9711719<br />variable: icecream","year: 2007.405<br />value: 0.9678818<br />variable: icecream","year: 2007.519<br />value: 0.9644118<br />variable: icecream","year: 2007.633<br />value: 0.9607880<br />variable: icecream","year: 2007.747<br />value: 0.9570369<br />variable: icecream","year: 2007.861<br />value: 0.9531848<br />variable: icecream","year: 2007.975<br />value: 0.9492579<br />variable: icecream","year: 2008.089<br />value: 0.9452493<br />variable: icecream","year: 2008.203<br />value: 0.9410991<br />variable: icecream","year: 2008.316<br />value: 0.9368081<br />variable: icecream","year: 2008.430<br />value: 0.9323800<br />variable: icecream","year: 2008.544<br />value: 0.9278182<br />variable: icecream","year: 2008.658<br />value: 0.9231261<br />variable: icecream","year: 2008.772<br />value: 0.9183074<br />variable: icecream","year: 2008.886<br />value: 0.9133654<br />variable: icecream","year: 2009.000<br />value: 0.9083037<br />variable: icecream"],"type":"scatter","mode":"lines","name":"icecream","line":{"width":3.77952755905512,"color":"rgba(0,191,196,1)","dash":"solid"},"hoveron":"points","legendgroup":"icecream","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.8481735159817,"r":7.30593607305936,"b":37.8025114155251,"l":43.1050228310502},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1999.55,2009.45],"tickmode":"array","ticktext":["2000","2003","2006","2009"],"tickvals":[2000,2003,2006,2009],"categoryorder":"array","categoryarray":["2000","2003","2006","2009"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Year","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.786207540126913,1.14548338932437],"tickmode":"array","ticktext":["0.8","0.9","1.0","1.1"],"tickvals":[0.8,0.9,1,1.1],"categoryorder":"array","categoryarray":["0.8","0.9","1.0","1.1"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"% of average year","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.959399606299213},"annotations":[{"text":"Statistic","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"3f6d44c48474":{"x":{},"y":{},"colour":{},"type":"scatter"},"3f6d5b2185c4":{"x":{},"y":{},"colour":{}}},"cur_data":"3f6d44c48474","visdat":{"3f6d44c48474":["function (y) ","x"],"3f6d5b2185c4":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="right fragment current-visible" style="position:relative; vertical-align: top;" data-fragment-index="3">
+<div id="htmlwidget-ca73780bb4d4e1249907" style="width:412.8px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ca73780bb4d4e1249907">{"x":{"data":[{"x":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009],"y":[0.867861142217245,0.921985815602837,1.00410600970511,0.80253826054498,0.989175065322882,0.95371407241508,1.11982082866741,1.08622620380739,1.12915266890631,1.12541993281075],"text":["year: 2000<br />value: 0.8678611<br />variable: drown","year: 2001<br />value: 0.9219858<br />variable: drown","year: 2002<br />value: 1.0041060<br />variable: drown","year: 2003<br />value: 0.8025383<br />variable: drown","year: 2004<br />value: 0.9891751<br />variable: drown","year: 2005<br />value: 0.9537141<br />variable: drown","year: 2006<br />value: 1.1198208<br />variable: drown","year: 2007<br />value: 1.0862262<br />variable: drown","year: 2008<br />value: 1.1291527<br />variable: drown","year: 2009<br />value: 1.1254199<br />variable: drown"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.66929133858268,"symbol":"circle-open","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"drown","legendgroup":"drown","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009],"y":[0.913134076136078,0.963314092012806,0.994562026177158,0.974752224714033,0.99021231374148,0.986462561641758,0.995673063836335,1.0186715433813,1.07086253742114,1.09235556093792],"text":["year: 2000<br />value: 0.9131341<br />variable: icecream3","year: 2001<br />value: 0.9633141<br />variable: icecream3","year: 2002<br />value: 0.9945620<br />variable: icecream3","year: 2003<br />value: 0.9747522<br />variable: icecream3","year: 2004<br />value: 0.9902123<br />variable: icecream3","year: 2005<br />value: 0.9864626<br />variable: icecream3","year: 2006<br />value: 0.9956731<br />variable: icecream3","year: 2007<br />value: 1.0186715<br />variable: icecream3","year: 2008<br />value: 1.0708625<br />variable: icecream3","year: 2009<br />value: 1.0923556<br />variable: icecream3"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":1,"size":5.66929133858268,"symbol":"circle-open","line":{"width":1.88976377952756,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"icecream3","legendgroup":"icecream3","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2000,2000.11392405063,2000.22784810127,2000.3417721519,2000.45569620253,2000.56962025316,2000.6835443038,2000.79746835443,2000.91139240506,2001.0253164557,2001.13924050633,2001.25316455696,2001.36708860759,2001.48101265823,2001.59493670886,2001.70886075949,2001.82278481013,2001.93670886076,2002.05063291139,2002.16455696203,2002.27848101266,2002.39240506329,2002.50632911392,2002.62025316456,2002.73417721519,2002.84810126582,2002.96202531646,2003.07594936709,2003.18987341772,2003.30379746835,2003.41772151899,2003.53164556962,2003.64556962025,2003.75949367089,2003.87341772152,2003.98734177215,2004.10126582278,2004.21518987342,2004.32911392405,2004.44303797468,2004.55696202532,2004.67088607595,2004.78481012658,2004.89873417722,2005.01265822785,2005.12658227848,2005.24050632911,2005.35443037975,2005.46835443038,2005.58227848101,2005.69620253165,2005.81012658228,2005.92405063291,2006.03797468354,2006.15189873418,2006.26582278481,2006.37974683544,2006.49367088608,2006.60759493671,2006.72151898734,2006.83544303797,2006.94936708861,2007.06329113924,2007.17721518987,2007.29113924051,2007.40506329114,2007.51898734177,2007.63291139241,2007.74683544304,2007.86075949367,2007.9746835443,2008.08860759494,2008.20253164557,2008.3164556962,2008.43037974684,2008.54430379747,2008.6582278481,2008.77215189873,2008.88607594937,2009],"y":[0.883275231827233,0.887519428118546,0.891457225052372,0.895104154668778,0.898475749007833,0.901587540109606,0.90445506001416,0.907093840761575,0.909519414391915,0.911737773117864,0.91352543525972,0.914856720004298,0.915831291921749,0.916548815582222,0.917108955555867,0.917611376412833,0.91815574272327,0.918841719057325,0.919561445754889,0.918950555365545,0.917071885178309,0.914328116365768,0.911121930100514,0.907856007555136,0.904933029902224,0.902755678314368,0.901726633964157,0.901704725945709,0.901278649311804,0.900616612462088,0.900020928141232,0.89979390909391,0.900237868064794,0.901655117798558,0.904347971039874,0.908618740533415,0.915534012417874,0.925843208764645,0.9386669763739,0.953111559227195,0.968283201306053,0.983288146592091,0.997232639066835,1.00922292271184,1.01838236036773,1.02569107128981,1.03225122632255,1.03820593073366,1.04369828979086,1.04887140876185,1.05386839291435,1.05883234751607,1.06390637783474,1.06921623388607,1.07461635254925,1.07998338648227,1.08524764682293,1.09033944470906,1.09518909127846,1.09972689766897,1.1038831750184,1.10758823446456,1.11082335634871,1.1137896800799,1.11650801741018,1.11896853019543,1.12116138029152,1.12307672955431,1.12470473983967,1.12603557300347,1.12705939090158,1.12777961995775,1.12822219372152,1.12839015231027,1.12828555090692,1.12791044469445,1.1272668888558,1.12635693857392,1.12518264903176,1.12374607541227],"text":["year: 2000.000<br />value: 0.8832752<br />variable: drown","year: 2000.114<br />value: 0.8875194<br />variable: drown","year: 2000.228<br />value: 0.8914572<br />variable: drown","year: 2000.342<br />value: 0.8951042<br />variable: drown","year: 2000.456<br />value: 0.8984757<br />variable: drown","year: 2000.570<br />value: 0.9015875<br />variable: drown","year: 2000.684<br />value: 0.9044551<br />variable: drown","year: 2000.797<br />value: 0.9070938<br />variable: drown","year: 2000.911<br />value: 0.9095194<br />variable: drown","year: 2001.025<br />value: 0.9117378<br />variable: drown","year: 2001.139<br />value: 0.9135254<br />variable: drown","year: 2001.253<br />value: 0.9148567<br />variable: drown","year: 2001.367<br />value: 0.9158313<br />variable: drown","year: 2001.481<br />value: 0.9165488<br />variable: drown","year: 2001.595<br />value: 0.9171090<br />variable: drown","year: 2001.709<br />value: 0.9176114<br />variable: drown","year: 2001.823<br />value: 0.9181557<br />variable: drown","year: 2001.937<br />value: 0.9188417<br />variable: drown","year: 2002.051<br />value: 0.9195614<br />variable: drown","year: 2002.165<br />value: 0.9189506<br />variable: drown","year: 2002.278<br />value: 0.9170719<br />variable: drown","year: 2002.392<br />value: 0.9143281<br />variable: drown","year: 2002.506<br />value: 0.9111219<br />variable: drown","year: 2002.620<br />value: 0.9078560<br />variable: drown","year: 2002.734<br />value: 0.9049330<br />variable: drown","year: 2002.848<br />value: 0.9027557<br />variable: drown","year: 2002.962<br />value: 0.9017266<br />variable: drown","year: 2003.076<br />value: 0.9017047<br />variable: drown","year: 2003.190<br />value: 0.9012786<br />variable: drown","year: 2003.304<br />value: 0.9006166<br />variable: drown","year: 2003.418<br />value: 0.9000209<br />variable: drown","year: 2003.532<br />value: 0.8997939<br />variable: drown","year: 2003.646<br />value: 0.9002379<br />variable: drown","year: 2003.759<br />value: 0.9016551<br />variable: drown","year: 2003.873<br />value: 0.9043480<br />variable: drown","year: 2003.987<br />value: 0.9086187<br />variable: drown","year: 2004.101<br />value: 0.9155340<br />variable: drown","year: 2004.215<br />value: 0.9258432<br />variable: drown","year: 2004.329<br />value: 0.9386670<br />variable: drown","year: 2004.443<br />value: 0.9531116<br />variable: drown","year: 2004.557<br />value: 0.9682832<br />variable: drown","year: 2004.671<br />value: 0.9832881<br />variable: drown","year: 2004.785<br />value: 0.9972326<br />variable: drown","year: 2004.899<br />value: 1.0092229<br />variable: drown","year: 2005.013<br />value: 1.0183824<br />variable: drown","year: 2005.127<br />value: 1.0256911<br />variable: drown","year: 2005.241<br />value: 1.0322512<br />variable: drown","year: 2005.354<br />value: 1.0382059<br />variable: drown","year: 2005.468<br />value: 1.0436983<br />variable: drown","year: 2005.582<br />value: 1.0488714<br />variable: drown","year: 2005.696<br />value: 1.0538684<br />variable: drown","year: 2005.810<br />value: 1.0588323<br />variable: drown","year: 2005.924<br />value: 1.0639064<br />variable: drown","year: 2006.038<br />value: 1.0692162<br />variable: drown","year: 2006.152<br />value: 1.0746164<br />variable: drown","year: 2006.266<br />value: 1.0799834<br />variable: drown","year: 2006.380<br />value: 1.0852476<br />variable: drown","year: 2006.494<br />value: 1.0903394<br />variable: drown","year: 2006.608<br />value: 1.0951891<br />variable: drown","year: 2006.722<br />value: 1.0997269<br />variable: drown","year: 2006.835<br />value: 1.1038832<br />variable: drown","year: 2006.949<br />value: 1.1075882<br />variable: drown","year: 2007.063<br />value: 1.1108234<br />variable: drown","year: 2007.177<br />value: 1.1137897<br />variable: drown","year: 2007.291<br />value: 1.1165080<br />variable: drown","year: 2007.405<br />value: 1.1189685<br />variable: drown","year: 2007.519<br />value: 1.1211614<br />variable: drown","year: 2007.633<br />value: 1.1230767<br />variable: drown","year: 2007.747<br />value: 1.1247047<br />variable: drown","year: 2007.861<br />value: 1.1260356<br />variable: drown","year: 2007.975<br />value: 1.1270594<br />variable: drown","year: 2008.089<br />value: 1.1277796<br />variable: drown","year: 2008.203<br />value: 1.1282222<br />variable: drown","year: 2008.316<br />value: 1.1283902<br />variable: drown","year: 2008.430<br />value: 1.1282856<br />variable: drown","year: 2008.544<br />value: 1.1279104<br />variable: drown","year: 2008.658<br />value: 1.1272669<br />variable: drown","year: 2008.772<br />value: 1.1263569<br />variable: drown","year: 2008.886<br />value: 1.1251826<br />variable: drown","year: 2009.000<br />value: 1.1237461<br />variable: drown"],"type":"scatter","mode":"lines","name":"drown","line":{"width":3.77952755905512,"color":"rgba(248,118,109,1)","dash":"solid"},"hoveron":"points","legendgroup":"drown","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2000,2000.11392405063,2000.22784810127,2000.3417721519,2000.45569620253,2000.56962025316,2000.6835443038,2000.79746835443,2000.91139240506,2001.0253164557,2001.13924050633,2001.25316455696,2001.36708860759,2001.48101265823,2001.59493670886,2001.70886075949,2001.82278481013,2001.93670886076,2002.05063291139,2002.16455696203,2002.27848101266,2002.39240506329,2002.50632911392,2002.62025316456,2002.73417721519,2002.84810126582,2002.96202531646,2003.07594936709,2003.18987341772,2003.30379746835,2003.41772151899,2003.53164556962,2003.64556962025,2003.75949367089,2003.87341772152,2003.98734177215,2004.10126582278,2004.21518987342,2004.32911392405,2004.44303797468,2004.55696202532,2004.67088607595,2004.78481012658,2004.89873417722,2005.01265822785,2005.12658227848,2005.24050632911,2005.35443037975,2005.46835443038,2005.58227848101,2005.69620253165,2005.81012658228,2005.92405063291,2006.03797468354,2006.15189873418,2006.26582278481,2006.37974683544,2006.49367088608,2006.60759493671,2006.72151898734,2006.83544303797,2006.94936708861,2007.06329113924,2007.17721518987,2007.29113924051,2007.40506329114,2007.51898734177,2007.63291139241,2007.74683544304,2007.86075949367,2007.9746835443,2008.08860759494,2008.20253164557,2008.3164556962,2008.43037974684,2008.54430379747,2008.6582278481,2008.77215189873,2008.88607594937,2009],"y":[0.916942199583817,0.922588871494086,0.927993841646378,0.933160354344824,0.938091653893553,0.942790984596697,0.947261590758376,0.95150671668274,0.95552960667391,0.959331163658514,0.962856054491084,0.966097712371231,0.9690803683174,0.971828253348038,0.974365598481593,0.976716634736511,0.978905593131239,0.98095670468422,0.982839248924989,0.984191813894423,0.985034405892114,0.985477320087344,0.985630851649397,0.985605295747554,0.985510947551099,0.985458102229313,0.985557054951479,0.985768396568419,0.985703421997586,0.985408582548957,0.984967257163453,0.984462824781995,0.983978664345502,0.983598154794895,0.983404675071094,0.98348160411502,0.983794044306812,0.98419369081876,0.98467410180337,0.985230502097367,0.985858116537472,0.986552169960412,0.98730788720291,0.988120493101688,0.988982205653354,0.989624984212008,0.989971455443513,0.990154858506729,0.990308432560521,0.990565416763751,0.99105905027528,0.99192257225397,0.993289221858685,0.995280877718614,0.997815685148262,1.00077079444221,1.00405194627411,1.00756488131759,1.01121534024628,1.01490906373384,1.01855179245389,1.02204926708008,1.02537827424181,1.02882129586356,1.03240838411089,1.03612680572336,1.03996382744052,1.04390671600194,1.04794273814716,1.05205916061577,1.0562432501473,1.06049904228388,1.0648565513517,1.06931466593393,1.07387099081869,1.07852313079414,1.08326869064844,1.08810527516971,1.09303048914611,1.09804193736578],"text":["year: 2000.000<br />value: 0.9169422<br />variable: icecream3","year: 2000.114<br />value: 0.9225889<br />variable: icecream3","year: 2000.228<br />value: 0.9279938<br />variable: icecream3","year: 2000.342<br />value: 0.9331604<br />variable: icecream3","year: 2000.456<br />value: 0.9380917<br />variable: icecream3","year: 2000.570<br />value: 0.9427910<br />variable: icecream3","year: 2000.684<br />value: 0.9472616<br />variable: icecream3","year: 2000.797<br />value: 0.9515067<br />variable: icecream3","year: 2000.911<br />value: 0.9555296<br />variable: icecream3","year: 2001.025<br />value: 0.9593312<br />variable: icecream3","year: 2001.139<br />value: 0.9628561<br />variable: icecream3","year: 2001.253<br />value: 0.9660977<br />variable: icecream3","year: 2001.367<br />value: 0.9690804<br />variable: icecream3","year: 2001.481<br />value: 0.9718283<br />variable: icecream3","year: 2001.595<br />value: 0.9743656<br />variable: icecream3","year: 2001.709<br />value: 0.9767166<br />variable: icecream3","year: 2001.823<br />value: 0.9789056<br />variable: icecream3","year: 2001.937<br />value: 0.9809567<br />variable: icecream3","year: 2002.051<br />value: 0.9828392<br />variable: icecream3","year: 2002.165<br />value: 0.9841918<br />variable: icecream3","year: 2002.278<br />value: 0.9850344<br />variable: icecream3","year: 2002.392<br />value: 0.9854773<br />variable: icecream3","year: 2002.506<br />value: 0.9856309<br />variable: icecream3","year: 2002.620<br />value: 0.9856053<br />variable: icecream3","year: 2002.734<br />value: 0.9855109<br />variable: icecream3","year: 2002.848<br />value: 0.9854581<br />variable: icecream3","year: 2002.962<br />value: 0.9855571<br />variable: icecream3","year: 2003.076<br />value: 0.9857684<br />variable: icecream3","year: 2003.190<br />value: 0.9857034<br />variable: icecream3","year: 2003.304<br />value: 0.9854086<br />variable: icecream3","year: 2003.418<br />value: 0.9849673<br />variable: icecream3","year: 2003.532<br />value: 0.9844628<br />variable: icecream3","year: 2003.646<br />value: 0.9839787<br />variable: icecream3","year: 2003.759<br />value: 0.9835982<br />variable: icecream3","year: 2003.873<br />value: 0.9834047<br />variable: icecream3","year: 2003.987<br />value: 0.9834816<br />variable: icecream3","year: 2004.101<br />value: 0.9837940<br />variable: icecream3","year: 2004.215<br />value: 0.9841937<br />variable: icecream3","year: 2004.329<br />value: 0.9846741<br />variable: icecream3","year: 2004.443<br />value: 0.9852305<br />variable: icecream3","year: 2004.557<br />value: 0.9858581<br />variable: icecream3","year: 2004.671<br />value: 0.9865522<br />variable: icecream3","year: 2004.785<br />value: 0.9873079<br />variable: icecream3","year: 2004.899<br />value: 0.9881205<br />variable: icecream3","year: 2005.013<br />value: 0.9889822<br />variable: icecream3","year: 2005.127<br />value: 0.9896250<br />variable: icecream3","year: 2005.241<br />value: 0.9899715<br />variable: icecream3","year: 2005.354<br />value: 0.9901549<br />variable: icecream3","year: 2005.468<br />value: 0.9903084<br />variable: icecream3","year: 2005.582<br />value: 0.9905654<br />variable: icecream3","year: 2005.696<br />value: 0.9910591<br />variable: icecream3","year: 2005.810<br />value: 0.9919226<br />variable: icecream3","year: 2005.924<br />value: 0.9932892<br />variable: icecream3","year: 2006.038<br />value: 0.9952809<br />variable: icecream3","year: 2006.152<br />value: 0.9978157<br />variable: icecream3","year: 2006.266<br />value: 1.0007708<br />variable: icecream3","year: 2006.380<br />value: 1.0040519<br />variable: icecream3","year: 2006.494<br />value: 1.0075649<br />variable: icecream3","year: 2006.608<br />value: 1.0112153<br />variable: icecream3","year: 2006.722<br />value: 1.0149091<br />variable: icecream3","year: 2006.835<br />value: 1.0185518<br />variable: icecream3","year: 2006.949<br />value: 1.0220493<br />variable: icecream3","year: 2007.063<br />value: 1.0253783<br />variable: icecream3","year: 2007.177<br />value: 1.0288213<br />variable: icecream3","year: 2007.291<br />value: 1.0324084<br />variable: icecream3","year: 2007.405<br />value: 1.0361268<br />variable: icecream3","year: 2007.519<br />value: 1.0399638<br />variable: icecream3","year: 2007.633<br />value: 1.0439067<br />variable: icecream3","year: 2007.747<br />value: 1.0479427<br />variable: icecream3","year: 2007.861<br />value: 1.0520592<br />variable: icecream3","year: 2007.975<br />value: 1.0562433<br />variable: icecream3","year: 2008.089<br />value: 1.0604990<br />variable: icecream3","year: 2008.203<br />value: 1.0648566<br />variable: icecream3","year: 2008.316<br />value: 1.0693147<br />variable: icecream3","year: 2008.430<br />value: 1.0738710<br />variable: icecream3","year: 2008.544<br />value: 1.0785231<br />variable: icecream3","year: 2008.658<br />value: 1.0832687<br />variable: icecream3","year: 2008.772<br />value: 1.0881053<br />variable: icecream3","year: 2008.886<br />value: 1.0930305<br />variable: icecream3","year: 2009.000<br />value: 1.0980419<br />variable: icecream3"],"type":"scatter","mode":"lines","name":"icecream3","line":{"width":3.77952755905512,"color":"rgba(0,191,196,1)","dash":"solid"},"hoveron":"points","legendgroup":"icecream3","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.8481735159817,"r":7.30593607305936,"b":37.8025114155251,"l":43.1050228310502},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1999.55,2009.45],"tickmode":"array","ticktext":["2000","2003","2006","2009"],"tickvals":[2000,2003,2006,2009],"categoryorder":"array","categoryarray":["2000","2003","2006","2009"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Year","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.786207540126913,1.14548338932437],"tickmode":"array","ticktext":["0.8","0.9","1.0","1.1"],"tickvals":[0.8,0.9,1,1.1],"categoryorder":"array","categoryarray":["0.8","0.9","1.0","1.1"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"% of average year","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.959399606299213},"annotations":[{"text":"Statistic","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"3f6d7cf23aa4":{"x":{},"y":{},"colour":{},"type":"scatter"},"3f6d2f6a9349":{"x":{},"y":{},"colour":{}}},"cur_data":"3f6d7cf23aa4","visdat":{"3f6d7cf23aa4":["function (y) ","x"],"3f6d2f6a9349":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<blockquote>
+<p>This is where the “educated” comes in</p>
+</blockquote>
+</section></section>
+<section><section id="section-coding" class="title-slide slide level1 header" data-background="../Backgrounds/section.jpg"><h1>SECTION: Coding</h1></section><section id="what-do-individuals-use-analytics-for" class="slide level2 default" data-background="../Backgrounds/default.jpg">
+<h2>What do individuals use analytics for?</h2>
+<ul>
+<li>A great package for machine learning in python is <a href="https://radimrehurek.com/gensim/" class="ref">gensim</a></li>
+<li>R:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># Addition uses &#39;+&#39;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># Subtraction uses &#39;-&#39;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+</section><section id="packages-used-for-these-slides" class="slide level2 default" data-background="../Backgrounds/coding.jpg">
+<h2>Packages used for these slides</h2>
+<ul>
+<li>kableExtra</li>
+<li>knitr</li>
+<li>revealjs</li>
+</ul>
+</section><section id="custom-code" class="slide level2 default" data-background="../Backgrounds/coding.jpg">
+<h2>Custom code</h2>
+<p><small style="width:100%"></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># List custom routines here</span></a></code></pre></div>
+<p></small></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="Slides_files/reveal.js-3.8.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1024,
+        height: 768,
+        // Bounds for smallest/largest possible scale to apply to content
+        //minScale: 1,
+        //maxScale: 1,
+        controlsLayout: "edges",
+
+
+
+        chalkboard: {
+          readOnly: false,
+          theme: 'whiteboard',
+        },
+
+        keyboard: {
+          67: function() { RevealChalkboard.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
+          66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+          46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
+           8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+          68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'Slides_files/reveal.js-3.8.0/plugin/search/search.js', async: true },
+          { src: 'Slides_files/reveal.js-3.8.0/plugin/chalkboard/chalkboard.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+<script>
+Reveal.addEventListener( 'slidechanged', function(event) {
+  MathJax.Hub.Rerender(event.currentSlide);
+} );
+</script>
